@@ -1,0 +1,1980 @@
+
+<!DOCTYPE html>
+<html>
+<head id="header_div">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bunker v16 (Patch)</title>
+
+<script language="javascript">
+
+//////////////////////////////////////////////////////////
+//////////// PASTE JSON GENERATE BELOW /////////
+/////////////////// TO CUSTOMIZE IT //////////////////////////////
+////////////////////////////////////////////////////////////////
+
+var pool = 
+///////////JSON DATA SAVED IN copy_this_doc//////
+{
+ "LINKS (external tools)": [
+  {
+   "COMMENT": "Add links, below is an example!"
+  },
+  {
+   "BLOCK": "LINK",
+   "text": "http://www.google.com",
+   "descr": "http://www.google.com"
+  }
+ ],
+ "NOTES": [
+  {
+   "COMMENT": "Add notes below! (the boxes can be scaled)"
+  },
+  {
+   "text": "Add notes here!",
+   "area": true
+  },
+  {
+   "text": "",
+   "area": true
+  },
+  {
+   "text": "",
+   "area": true
+  }
+ ],
+ "Find (linux command)": [
+  "find ",
+  {
+   "COMMENT": "PATH to search ( . ) for current directory"
+  },
+  {
+   "text": "."
+  },
+  " ",
+  {
+   "BLOCK": "START",
+   "descr": "Search by filetype FILES (optional, don't pick this an next):",
+   "default": false
+  },
+  "-type f ",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "Search by Type DIRECTORIES (optional, don't pick this and above):",
+   "default": false
+  },
+  "type -d ",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "Search by Time modified (optional 1 is last 24 hours):",
+   "default": false
+  },
+  "-mtime -",
+  {
+   "text": "1"
+  },
+  " ",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "Find By filename(optional): ",
+   "default": true
+  },
+  "-name \"",
+  {
+   "COMMENT": "Name with regex (*name.txt, etc.):"
+  },
+  {
+   "text": "*name.txt"
+  },
+  "\" ",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "Execute command ( '{}' is filename placeholder: -exec rm {} ) ",
+   "default": false
+  },
+  "-exec ",
+  {
+   "text": "rm {}"
+  },
+  " \\;",
+  {
+   "BLOCK": "END"
+  },
+  "",
+  ""
+ ],
+ "Grep_directory_search/find replace": [
+  "################## USE-COPY__LINE__- BELOW!!! \n## 1st: grep simple file search:\n\n",
+  "grep ",
+  {
+   "BLOCK": "START",
+   "descr": "SEARCH PARAMS",
+   "default": true
+  },
+  "-",
+  {
+   "BLOCK": "START",
+   "descr": "F- NO WILDCARDS (Plain text search)",
+   "default": false
+  },
+  "F",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "i- no case sensitive (upper=lower case)",
+   "default": true
+  },
+  "i",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "-n seach directory",
+   "default": true
+  },
+  "n",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "BLOCK": "START",
+   "descr": "-r recursive directory search",
+   "default": true
+  },
+  "r",
+  {
+   "BLOCK": "END"
+  },
+  " ",
+  {
+   "BLOCK": "END"
+  },
+  {
+   "COMMENT": "Word Block to search for (should make string regex safe)"
+  },
+  "\"",
+  {
+   "text": "target_word",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "target_wd"
+  },
+  "\"",
+  " ",
+  {
+   "COMMENT": "Directory to search"
+  },
+  {
+   "text": "./",
+   "tag": "Path"
+  },
+  "\n\n#########################################################\n## NEXT: GREP FIND/REPLACE (TEST THE FIRST BELOW AS A SANITY CHECK, THE ONE WITH SED REPLACES!)\n##### REPLACING WORD WITH: ",
+  {
+   "COMMENT": "REPLACE WORD WITH (REGEX SAVE, if using this command(s), IGNORES PREVIOUS GREP PARAMS!!!):"
+  },
+  {
+   "text": "Replace_words_with",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "Replace"
+  },
+  {
+   "COMMENT": "--------------------------------------------------------\n--------------------------------------------------------\n----CAN IGNORE BELOW FILL-IN BOXES: THEY ARE -SYNCED- WITH ABOVE!\n--------------------------------------------------------\n--------------------------------------------------------\n--------------------------------------------------------\n--------------------------------------------------------\n--------------------------------------------------------\n--------------------------------------------------------"
+  },
+  "\n\ngrep -rl \"",
+  {
+   "text": "target_word",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "target_wd"
+  },
+  "\" ",
+  {
+   "text": "./"
+  },
+  "\ngrep -rl \"",
+  {
+   "text": "target_word",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "target_wd"
+  },
+  "\" ",
+  {
+   "text": "./",
+   "tag": "Path"
+  },
+  "",
+  "",
+  " | xargs sed -i s/",
+  {
+   "text": "target_word",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "target_wd"
+  },
+  "/",
+  {
+   "text": "Replace_words_with",
+   "BLOCK": "INPUT_REGEX_SAFE",
+   "tag": "Replace"
+  },
+  "/g",
+  null,
+  null,
+  null
+ ],
+ "_ACTIVE_MARKER_": "NOTES"
+}
+///////////JSON DATA SAVED IN copy_this_doc//////
+
+;
+
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+</script>
+
+    <style>
+        :root { --p: #00ff41; --h: #aaffaa; --bg: #050505; --dim: #333; --blue: #55aaff; --red: #ff5555; }
+        body { background: var(--bg); color: var(--p); font-family: monospace; padding: 10px; margin: 0; }
+        .container { max-width: 1000px; margin: auto; padding-bottom: 100px; }
+/* Display Mode Magenta Styling */
+.type-regex-safe { 
+    border-color: #ff55ff !important; 
+    color: #ff55ff !important; 
+    box-shadow: inset 0 0 5px rgba(255, 85, 255, 0.2);
+}
+.type-link { color: #55aaff !important; text-decoration: underline; cursor: pointer; }
+.type-link:hover { color: #fff !important; }
+
+.type-crypto { 
+    border-color: #00ffff !important; /* Cyan */
+    color: #00ffff !important; 
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    background: rgba(0, 255, 255, 0.05) !important;
+}
+        
+        input, textarea, select, button { background: #000; color: var(--p); border: 1px solid var(--dim); padding: 10px; margin: 4px 0; font-family: monospace; width: 100%; box-sizing: border-box; font-size: 1rem; }
+        
+        .legend { font-size: 0.8rem; color: var(--h); border: 1px solid var(--dim); padding: 8px; margin-bottom: 10px; background: #001100; }
+        .legend b { color: var(--blue); }
+
+       /* This prevents the "flicker" and makes transitions snappy */
+.brick { 
+    transition: transform 0.1s ease-out; 
+    border: 1px solid var(--dim); /* This is the secret sauce! */
+    padding: 10px; 
+    margin-bottom: 10px;
+    background: #0a0a0a; 
+}
+.dragging { 
+    opacity: 0.2 !important; 
+    background: var(--blue) !important; 
+    border: 2px dashed #fff !important; 
+}
+.brick-ctrl { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+        .brick-ctrl select, .brick-ctrl input { width: auto; height: 38px; padding: 4px 8px; }
+        
+        .handle { cursor: grab; font-weight: bold; color: var(--blue); padding: 5px; user-select: none; }
+        .handle:active { cursor: grabbing; }
+        
+        .btn-l { width: auto !important; padding: 8px 12px; font-weight: bold; cursor: pointer; height: 38px; }
+        .btn-add { border-color: var(--p); color: var(--p); }
+        .btn-del { border-color: var(--red); color: var(--red); }
+        
+        /* Nesting & Display */
+        .nested { border-left: 2px solid var(--dim); padding-left: 15px; margin: 8px 0; }
+        .comment-pill { color: #FFFFFF; font-weight: bold; font-size: 1.2em;display: block; margin: 12px 0 4px 0; }
+        .comment-pill_LINK { color: #FFFFFF; font-weight: bold; font-size: 2.0em;display: block; margin: 12px 0 4px 0; }
+	.ghost { color: var(--blue); opacity: 0.7; font-size: 1.2em; font-weight: bold; }
+        
+       .output-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps everything centered */
+}
+
+.output-label {
+    background: var(--p);       /* Using your green/glow color */
+    color: #000;                /* Black text on green background */
+    font-weight: bold;
+    font-size: 2.0rem;
+    padding: 2px 12px;
+    border-radius: 4px 4px 0 0; /* Rounded top corners */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: fit-content;         /* Only as wide as the text */
+}
+
+#out { 
+    /* Keep your existing styles here, but maybe tweak the top border */
+    border: 4px solid var(--p);
+    background: #001100;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-height: 300px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+        .toolbar { position: sticky; top: 0; background: var(--bg); z-index: 100; border-bottom: 1px solid var(--dim); padding-bottom: 10px; }
+        .io-drawer { border: 2px dashed var(--blue); padding: 15px; margin-top: 20px; background: #000810; }
+
+/* Non-Edit Display Classes */
+.type-start { color: #ffaa00 !important; } /* Orange */
+.type-comment { color: #FFFFFF !important; } /* White */
+.type-string { color: #55aaff !important; font-size: 1.2rem; font-weight: bold; } /* Blue */
+.type-input { border-color: #00ff41 !important; color: #00ff41 !important; } /* Neon Green */
+.type-area { border-color: #888 !important; color: #888 !important; } /* Grey */
+
+/* The Nesting Line */
+.nested.type-start { 
+    border-left: 2px solid #ffaa00; 
+    padding-left: 15px; 
+    margin: 8px 0; 
+}
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                        
+
+<div class="container">
+    <div class="toolbar" style="display: flex; gap: 5px; background: #050505; border-bottom: 2px solid var(--dim); padding: 5px 0;">
+    <button onclick="saveFile()" style="flex: 1; border-color: var(--p);">SAVE_MODDED_ctrlS</button>
+    <button id="mode-btn" onclick="toggleEdit()" style="flex: 1; border-color: var(--blue);">[ MODE ]</button>
+    <button onclick="undo()" style="flex: 1; border-color: #ffaa00;">UNDO_ctrlZ</button>
+</div>
+
+    <h2 style="margin-top: 0; display: inline-flex; align-items: center; gap: 10px;"><b id="myTmpTitle_div">&gt; Bunker_v15.1_Gemini_vibe_coded </b></h2>
+
+ <div style="display:flex; gap: 8px; align-items:center; flex-wrap: wrap;">
+        <select id="mod-sel" onchange="load(this.value)" style="flex:1; min-width: 150px;"></select>
+        
+	<!-- ADD THESE TWO BUTTONS HERE -->
+    <button class="btn-l" onclick="shiftPool(-1)" style="border-color:var(--blue); color:var(--blue)">/\</button>
+    <button class="btn-l" onclick="shiftPool(1)" style="border-color:var(--blue); color:var(--blue)">\/</button>
+
+        <button class="btn-l" onclick="renamePool()" style="border-color:var(--blue); color:var(--blue)">[ RENAME ]</button>
+        <button class="btn-l" onclick="clonePool()" style="border-color:#ffaa00; color:#ffaa00">[ CLONE ]</button>
+        
+        <button class="btn-l" onclick="addPool()" style="border-color:var(--p); color:var(--p)">[ + NEW ]</button>
+        <button class="btn-l" onclick="delPool()" style="border-color:var(--red); color:var(--red)">[ DEL ]</button>
+        <button class="btn-l" onclick="undo()" style="border-color:#ffaa00; color:#ffaa00">[ UNDO ]</button>
+    </div>
+
+    <div class="legend" id="legend-field" style="display:none;">
+        <b>[::]</b> Drag Handle | <b>^ \/:</b> Move block up/down by 1 <b>DefOn:</b> Block starts expanded | <b>SyncWTag:</b> IF set, syncs with others set to this (inputs)
+<br> 
+    </div>
+
+    <div id="ui"></div>
+    
+<div class="output-container">
+    <div class="output-label">GENERATED_OUTPUT</div>
+    <textarea id="out" spellcheck="false" readonly=""></textarea>
+</div>
+
+<div style="display:flex; gap: 8px; margin-top: 10px; align-items: center;"> 
+
+    <select id="line-picker" onchange="copyLine(this.value)" style=" border-color: var(--magenta); color: var(--magenta); text-align: center;"> 
+
+        <option value="">[ COPY_OUTPUT__LINE__TO_CLIPBOARD(MENU) ]</option>
+    </select>
+</div>
+<button onclick="copy('out')" style="font-weight: bold; border-color: var(--blue); color: var(--blue);">[ COPY_OUTPUT_TO_CLIPBOARD(__ALL__) ]</button>
+  
+
+    <div class="io-drawer">
+        <label class="comment-pill" style="color:var(--blue); margin-top:0;">[ MULTI-LOADER IO ]</label>
+        <textarea id="io" style="height:80px" placeholder="Paste full JSON Library to IMPORT, or raw text to SHRED..."></textarea>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px;">
+            <button onclick="shred()">[ SHRED (string 2 fields) ]</button>
+            <button onclick="imp()" style="border-color:var(--p);">[ IMPORT ALL ]</button>
+            <button onclick="expAll()">[ EXPORT ALL ]</button>
+	    <button onclick="importSingleEntry()">[ IMPORT LAST SELECT ENTRY ]</button> 
+        </div>
+	<div id="drop-zone" style="border: 2px dashed var(--p); padding: 20px; text-align: center; margin-bottom: 10px; background: #001100; cursor: pointer;">
+       [ DRAG &amp; DROP JSON/HTML FILES HERE TO MERGE DATA ]
+</div>
+    </div>
+</div>
+
+
+
+<!-- Aetherial bridge section -->
+<!-- Aetherial bridge section -->
+<!-- AETHER BRIDGE SECTION -->
+<div class="io-drawer" style="max-width: 1000px; margin: auto; border: 1px solid var(--dim); border-radius: 8px; overflow: hidden; background: rgba(0,0,0,0.1);">
+    
+    <!-- Inline Toggle Header -->
+    <div onclick="const core = document.getElementById('bridge-content'); const icon = document.getElementById('bridge-icon'); core.style.display = (core.style.display === 'none' ? 'block' : 'none'); icon.innerText = (core.style.display === 'none' ? '[+] SHOW' : '[-] HIDE');" style="background: rgba(0,0,0,0.3); padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--blue); user-select: none;">
+        
+        <h2 style="color: var(--blue); margin: 0; font-size: 2.5em;">[ THE AETHER BRIDGE ] PASSWORD_GEN/ENCRYPTION] <br>  </h2>
+        <span id="bridge-icon" style="color: var(--blue); font-family: monospace;">[+] SHOW</span>
+    </div>
+
+    <!-- The Core Content (Starts Hidden) -->
+    <div id="bridge-content" style="display: none; padding: 20px;">
+        
+        <div style="font-size: 0.75em; color: var(--blue); margin-bottom: 20px; letter-spacing: 1px;">
+            Secure File-to-Text on-the-fly Encryption Portal // Zero-Knowledge
+        </div>
+
+
+    <!-- Vault Config -->
+<div style="margin-bottom: 20px; border-bottom: 1px solid var(--dim); padding-bottom: 15px;">
+    <div class="comment-pill" style="color: var(--blue); font-size: 0.9em;">[ Vault Configuration ]</div>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        <!-- Primary Key Row -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 0.8em; white-space: nowrap;">Password:</span>
+            <input id="pass-key" placeholder="Passphrase or Hash..." style="border-color: var(--blue); margin: 0; flex: 1;">
+	    <button id="btn-copy-pass" class="btn-l" style="font-size: 0.7em; width: 60px;">COPY</button>
+            <button id="btn-show-pass" class="btn-l" style="font-size: 0.7em; width: 60px;">HIDE</button>
+        </div>
+
+        <!-- Utility Buttons -->
+        <div style="display: flex; gap: 10px;">
+            <button id="btn-refine" class="btn-l" style="border: 1px solid var(--p); color: var(--p); flex: 1; font-size: 0.75em;">
+                OBFUSCATE PASSWORD
+            </button>
+            <div id="drop-keyfile" class="brick" style="border: 1px dashed var(--blue); text-align: center; padding: 10px; cursor: pointer; font-size: 0.75em; flex: 2; margin: 0;">
+                [ CLICK/DROP FILE USES FILE TO CREATE PASSWORD(ANY FILE) ]
+                <span id="file-indicator" style="font-size: 0.8em; color: var(--h); margin-left: 5px;">NONE</span>
+            </div>
+        </div>
+        <input type="file" id="input-keyfile" style="display:none">
+    </div>
+</div>
+
+
+    <!-- Step 1: Outbound -->
+    <div style="margin-bottom: 20px;">
+        <div class="comment-pill" style="color: var(--p); font-size: 0.9em;">[ Step 1: Outbound (File -&gt; Text) ]</div>
+        <div id="drop-encode" class="brick" style="border: 2px dashed var(--p); text-align: center; padding: 30px; cursor: pointer;">
+            CLICK/DROP SOURCE FILE TO STRINGIFY
+        </div>
+        <input type="file" id="input-encode" style="display:none">
+        <div id="status-out" class="status" style="color: var(--p); border-color: var(--p);">SYSTEM READY.</div>
+    </div>
+
+    <!-- The Bridge Interface -->
+    <div style="margin-bottom: 20px;">
+        <div class="comment-pill" style="color: var(--blue); font-size: 0.9em;">[ The Bridge (Manual Text Interface) ]</div>
+        <textarea id="io-box" placeholder="---BEGIN WIZARD DATA---" style="border-color: var(--blue); height: 150px;"></textarea>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+    <button id="btn-recon" class="btn-l" style="border: 1px solid var(--blue); color: var(--blue); flex: 1;">RECONSTRUCT</button>
+    <button id="btn-decon" class="btn-l" style="border: 1px solid var(--p); color: var(--p); flex: 1;">DECONSTRUCT</button>
+    <button id="btn-clear-aether" class="btn-l" style="border: 1px solid var(--red); color: var(--red); flex: 1;">CLEAR</button>
+</div>
+    </div>
+
+    <!-- Step 2: Inbound -->
+    <div>
+        <div class="comment-pill" style="color: var(--blue); font-size: 0.9em;">[ Step 2: Inbound (Text-File -&gt; Original) ]</div>
+        <div id="drop-decode" class="brick" style="border: 2px dashed var(--blue); text-align: center; padding: 30px; cursor: pointer;">
+            CLICK/DROP .TXT SPELL-FILE TO RECOVER
+        </div>
+        <input type="file" id="input-decode" style="display:none">
+        <div id="status-in" class="status" style="color: var(--blue); border-color: var(--blue);">AWAITING TRANSMISSION...</div>
+    </div>
+</div>
+</div>
+
+
+    <script>
+    // --- CORE AETHER LOGIC (YOUR ORIGINAL SCRIPT) ---
+    const ioBox = document.getElementById('io-box');
+    const passKey = document.getElementById('pass-key');
+    const statusOut = document.getElementById('status-out');
+    const statusIn = document.getElementById('status-in');
+
+document.getElementById('btn-copy-pass').onclick = function() {
+    const passInput = document.getElementById('pass-key');
+    
+    // Copy the value to clipboard
+    navigator.clipboard.writeText(passInput.value).then(() => {
+        // Visual feedback
+        const originalText = this.innerText;
+        this.innerText = "DONE!";
+        this.style.color = "var(--p)";
+        
+        setTimeout(() => {
+            this.innerText = originalText;
+            this.style.color = "";
+        }, 1000);
+    });
+};
+
+// Call this at the end of your existing run() function 
+// to ensure the dropdown stays synced with the output!
+function updateLinePicker() {
+    const out = document.getElementById('out').value;
+    const picker = document.getElementById('line-picker');
+    
+    // Clear current options (keep the first one)
+    picker.innerHTML = '<option value="">[ COPY_OUTPUT__LINE__TO_CLIPBOARD(MENU) ] </option>';
+    
+    // Split by newline and filter out empty lines
+    const lines = out.split('\n').filter(line => line.trim() !== "");
+    
+    lines.forEach((line, index) => {
+        const opt = document.createElement('option');
+        opt.value = line;
+        // Truncate the display text so the dropdown doesn't get too wide
+        opt.innerText = `Line ${index + 1}: ${line.substring(0, 50)}${line.length > 50 ? '...' : ''}`;
+        picker.appendChild(opt);
+    });
+}
+
+function copyLine(val) {
+  if (!val) return;
+  
+  // Try Copy
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(val);
+  } else {
+    var s = document.createElement('textarea');
+    s.value = val; document.body.appendChild(s); s.select();
+    if (!document.execCommand('copy')) window.prompt("Copy manually:", val);
+    document.body.removeChild(s);
+  }
+
+  // Visual Feedback
+  var p = document.getElementById('line-picker');
+  if (p) {
+    var old = p.style.borderColor;
+    p.style.borderColor = "var(--p)";
+    setTimeout(function() { p.style.borderColor = old; p.value = ""; }, 500);
+  }
+}
+
+    async function getDerivedKey(password) {
+        const enc = new TextEncoder();
+        const keyMaterial = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
+        return crypto.subtle.deriveKey(
+            { name: "PBKDF2", salt: enc.encode("aether-salt-2026"), iterations: 100000, hash: "SHA-256" },
+            keyMaterial, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]
+        );
+    }
+
+// --- PASSWORD VISIBILITY TOGGLE ---
+document.getElementById('btn-show-pass').onclick = function() {
+    const pk = document.getElementById('pass-key');
+    if (pk.type === "password") {
+        pk.type = "text";
+        this.innerText = "HIDE";
+        this.style.color = "var(--red)";
+    } else {
+        pk.type = "password";
+        this.innerText = "SHOW";
+        this.style.color = "var(--p)";
+    }
+};
+
+// --- REFINE SEED (Turn text into a 256-bit Hash) ---
+document.getElementById('btn-refine').onclick = async () => {
+    const passInput = document.getElementById('pass-key');
+    const val = passInput.value;
+    if (!val) return;
+
+    const enc = new TextEncoder();
+    const hashBuffer = await crypto.subtle.digest('SHA-256', enc.encode(val));
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    passInput.value = "_1X" + hashHex.slice(0, 32) ;
+    statusOut.innerText = "SEED REFINED TO 256-BIT HASH.";
+};
+
+// Initialize the Keyfile Logic
+const setupKeyfile = () => {
+    const dropZone = document.getElementById('drop-keyfile');
+    const passInput = document.getElementById('pass-key');
+    const fileInput = document.getElementById('input-keyfile');
+
+    // Click to browse
+    dropZone.onclick = () => fileInput.click();
+
+    // Handle the actual file processing
+    const handleFile = async (file) => {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+            const hashBuffer = await crypto.subtle.digest('SHA-256', event.target.result);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            passInput.value = "_1X" + hashHex.slice(0, 32) ;
+            document.getElementById('file-indicator').innerText = `LOCKED: ${file.name.slice(0,10)}...`;
+            passInput.style.borderColor = "var(--p)";
+            
+            // Trigger an 'input' event so any monitors you added will update
+            passInput.dispatchEvent(new Event('input'));
+        };
+        reader.readAsArrayBuffer(file);
+    };
+
+    // Browse selection
+    fileInput.onchange = e => handleFile(e.target.files[0]);
+
+    // Drag and Drop support
+    dropZone.ondragover = e => { e.preventDefault(); dropZone.style.background = "rgba(0,255,255,0.1)"; };
+    dropZone.ondragleave = () => { dropZone.style.background = "transparent"; };
+    dropZone.ondrop = e => {
+        e.preventDefault();
+        dropZone.style.background = "transparent";
+        handleFile(e.dataTransfer.files[0]);
+    };
+};
+
+// CRITICAL: Call the function so it sets up the listeners!
+setupKeyfile();
+
+
+// --- DECONSTRUCT (Text in box -> Wizard Data String) ---
+async function deconstruct() {
+    const content = ioBox.value.trim();
+    if (!content) return;
+
+    // If it's already wrapped, don't wrap it again
+    if (content.includes("---BEGIN WIZARD DATA---")) {
+        statusOut.innerText = "ALREADY DECONSTRUCTED.";
+        return;
+    }
+
+    statusOut.innerText = "WRAPPING DATA...";
+    
+    const password = passKey.value;
+    let resultData;
+
+    if (password) {
+        // Encrypt the text from the box
+        const key = await getDerivedKey(password);
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const encodedText = new TextEncoder().encode(content);
+        const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, encodedText);
+        
+        const combined = new Uint8Array(iv.length + encrypted.byteLength);
+        combined.set(iv); 
+        combined.set(new Uint8Array(encrypted), iv.length);
+
+        let binary = '';
+        for (let i = 0; i < combined.byteLength; i++) binary += String.fromCharCode(combined[i]);
+        resultData = "data:application/octet-stream;base64," + btoa(binary);
+    } else {
+        // Just Base64 encode the clear-text
+        resultData = "data:text/plain;base64," + btoa(content);
+    }
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 16);
+    const final = `---BEGIN WIZARD DATA---\nFilename: snippet_${timestamp}.txt\n${resultData}\n---END WIZARD DATA---`;
+    
+    ioBox.value = final;
+    statusOut.innerText = "DONE: WRAPPED IN BOX.";
+}
+
+// Add this to your bindings section at the bottom
+document.getElementById('btn-decon').onclick = deconstruct;
+
+   async function reconstruct(rawText) {
+    let data = rawText.trim();
+    let password = passKey.value;
+    let filename = "recovered_file";
+    
+    const nameMatch = data.match(/Filename: (.*)\n/);
+    if (nameMatch) filename = nameMatch[1].trim();
+
+    let cleanB64 = data.replace(/---BEGIN WIZARD DATA---/g, "").replace(/---END WIZARD DATA---/g, "").replace(/Filename: .*\n/g, "").replace(/\s/g, "");
+
+    try {
+        const parts = cleanB64.split(',');
+        const mime = data.match(/data:(.*?);/)?.[1] || "application/octet-stream";
+        const binaryStr = atob(parts[1] || parts[0]);
+        const bytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+
+        let decryptedBuffer;
+        if (password) {
+            const iv = bytes.slice(0, 12);
+            const ciphertext = bytes.slice(12);
+            const key = await getDerivedKey(password);
+            decryptedBuffer = await crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, ciphertext);
+        } else {
+            decryptedBuffer = bytes.buffer;
+        }
+
+        // --- SMART OUTPUT SELECTION ---
+        // If it's a text file and reasonably small, just show it in the box
+        if (mime.startsWith("text/") || filename.endsWith(".txt")) {
+            const decodedText = new TextDecoder().decode(decryptedBuffer);
+            if (decodedText.length < 50000) { // Under 50kb? Keep it in the box.
+                ioBox.value = decodedText;
+                statusIn.innerText = "RECOVERED TO BOX.";
+                return true;
+            }
+        }
+
+        // Otherwise, trigger the download for binary/large files
+        const finalBlob = new Blob([decryptedBuffer], { type: mime });
+        const url = URL.createObjectURL(finalBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        statusIn.innerText = "FILE RECOVERED & DOWNLOADED.";
+        return true;
+    } catch (e) {
+        alert("DECRYPTION FAILED: Check password or data integrity.");
+        return false;
+    }
+}
+
+    async function handleEncode(file) {
+        if (!file) return;
+        statusOut.innerText = "PROCESSING...";
+        const password = passKey.value;
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            let resultData;
+            if (password) {
+                const key = await getDerivedKey(password);
+                const iv = crypto.getRandomValues(new Uint8Array(12));
+                const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, e.target.result);
+                const combined = new Uint8Array(iv.length + encrypted.byteLength);
+                combined.set(iv); combined.set(new Uint8Array(encrypted), iv.length);
+                let binary = '';
+                for (let i = 0; i < combined.byteLength; i++) binary += String.fromCharCode(combined[i]);
+                resultData = "data:application/octet-stream;base64," + btoa(binary);
+            } else {
+                resultData = e.target.result;
+            }
+            const final = `---BEGIN WIZARD DATA---\nFilename: ${file.name}\n${resultData}\n---END WIZARD DATA---`;
+            if (final.length < 153600) {
+                ioBox.value = final;
+                statusOut.innerText = "DONE: COPIED TO BOX.";
+            } else {
+                const blob = new Blob([final], {type: "text/plain"});
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob); a.download = file.name + ".txt"; a.click();
+                statusOut.innerText = "DONE: DOWNLOADED .TXT.";
+            }
+        };
+        if (password) reader.readAsArrayBuffer(file);
+        else reader.readAsDataURL(file);
+    }
+
+    const setupDrop = (id, handler) => {
+        const el = document.getElementById(id);
+        el.onclick = () => el.nextElementSibling.click();
+        el.nextElementSibling.onchange = e => handler(e.target.files[0]);
+        el.ondragover = e => { e.preventDefault(); el.style.background = "#001100"; };
+        el.ondragleave = () => el.style.background = "transparent";
+        el.ondrop = e => { e.preventDefault(); el.style.background = "transparent"; handler(e.dataTransfer.files[0]); };
+    };
+
+    setupDrop('drop-encode', handleEncode);
+    setupDrop('drop-decode', file => {
+        const reader = new FileReader();
+        reader.onload = e => reconstruct(e.target.result) ? statusIn.innerText = "RECOVERED." : statusIn.innerText = "ERROR.";
+        reader.readAsText(file);
+    });
+
+    document.getElementById('btn-recon').onclick = () => reconstruct(ioBox.value);
+    document.getElementById('btn-clear-aether').onclick = () => { ioBox.value = ""; statusIn.innerText = "AWAITING..."; statusOut.innerText = "READY."; };
+
+////////////////////////////////////////////
+///////////////////////// END AETHER BRIDGE LOGIC
+////////////////////////////////////////////
+
+</script>
+
+
+<script> 
+
+
+// Top of script
+var cur = null; 
+var isEdit = false;
+var undoStack = [];
+
+// State Management
+function capture() { undoStack.push(JSON.stringify(pool)); if (undoStack.length > 50) undoStack.shift(); }
+function undo() { if (!undoStack.length) return; pool = JSON.parse(undoStack.pop()); boot(cur); }
+
+function toggleEdit() { isEdit = !isEdit; load(cur); }
+
+// Profile Management
+function addPool() {
+    let name = prompt("Name for new profile?");
+    if (name && !pool[name]) { capture(); pool[name] = [{COMMENT: "New Profile"}]; boot(name); }
+}
+
+function delPool() {
+    if (Object.keys(pool).length <= 1) return alert("Cannot delete the last remaining profile.");
+    if (confirm(`Delete profile "${cur}"?`)) { capture(); delete pool[cur]; boot(Object.keys(pool)[0]); }
+}
+
+
+function load(name) {
+    cur = name; // Update the global pointer
+
+    // --- UI SYNC ---
+    // 1. Update the Browser Tab (The 'B' prefix keeps it short)
+    document.title = "B - " + cur;
+
+    // 2. Update the Header inside the page
+    // We keep the versioning but show exactly what is 'open'
+    document.getElementById('myTmpTitle_div').innerHTML = "> Bunker v1.6:" + cur;
+
+    if (!pool[name]) return;
+    cur = name; 
+    const root = document.getElementById("ui"); 
+    root.innerHTML = "";
+    const data = pool[name];
+    
+    // UI Mode Switching
+    document.getElementById('mode-btn').innerText = isEdit ? "[ EXIT_EDIT ]" : "[ EDIT_MODE ]";
+    document.getElementById('legend-field').style.display = isEdit ? 'block' : 'none';
+
+    if (isEdit) {
+        // --- EDIT MODE: RENDERING THE BRICKS ---
+        data.forEach((item, idx) => {
+	    if (item === null || item === undefined) return;
+            const brick = document.createElement("div");
+            brick.className = "brick"; 
+            brick.dataset.idx = idx;
+            
+            // 1. Identify Type & Value (FIXED LOGIC)
+            let type = 'text', val = '';
+            if (typeof item === 'string') { type = 'string'; val = item; }
+            else if (item.BLOCK === 'LINK') { type = 'LINK'; val = item.text || ""; }
+	    else if (item.BLOCK === 'INPUT_REGEX_SAFE') { type = 'INPUT_REGEX_SAFE'; val = item.text || ""; }
+            else if (item.BLOCK === 'CRYPTO_GEN') { type = 'CRYPTO_GEN'; val = item.text || ""; } // Added this!
+            else if (item.BLOCK === 'START') { type = 'START'; val = item.descr || ""; }
+            else if (item.BLOCK === 'END') { type = 'END'; val = ""; }
+            else if (item.COMMENT !== undefined) { type = 'COMMENT'; val = item.COMMENT; }
+            else if (item.area) { type = 'area'; val = item.text || ""; }
+            else { type = 'text'; val = item.text || ""; }
+
+            const colors = { 
+		    'START': '#ffaa00', 
+		    'END': '#ff5555',
+		    'COMMENT': '#FFFFFF',
+		    'string': '#55aaff', 
+		    'text': '#00ff41',
+		    'area': '#888',
+		    'CRYPTO_GEN': '#00ffff',
+		    'INPUT_REGEX_SAFE': '#ff55ff',
+		    'LINK': '#55aaff' // Add this color (Blue)
+		};
+            
+            brick.style.borderColor = colors[type] || '#00ff41';
+            brick.style.borderLeftWidth = "6px";
+
+            // 3. Build HTML
+            brick.innerHTML = `
+                <div class="brick-ctrl">
+                    <span class="handle" draggable="true" ondragstart="startDrag(event, ${idx})" ondragend="endDrag(event)">[::]</span>
+                    <button class="btn-l" onclick="shift(${idx}, -1)" style="border-color:var(--blue)">^</button>
+                    <button class="btn-l" onclick="shift(${idx}, 1)" style="border-color:var(--blue)">v</button>
+                    <select onchange="setType(${idx}, this.value)">
+                        <option value="text" ${type==='text'?'selected':''}>INPUT</option>
+			<option value="INPUT_REGEX_SAFE" ${type==='INPUT_REGEX_SAFE'?'selected':''}>INPUT_REGEX_SAFE</option>
+                        <option value="area" ${type==='area'?'selected':''}>TEXTAREA</option>
+                        <option value="string" ${type==='string'?'selected':''}>FIXED_TEXT</option>
+                        <option value="COMMENT" ${type==='COMMENT'?'selected':''}>COMMENT</option>
+                        <option value="START" ${type==='START'?'selected':''}>START_BLOCK</option>
+                        <option value="END" ${type==='END'?'selected':''}>END_BLOCK</option>
+<option value="CRYPTO_GEN" ${type==='CRYPTO_GEN'?'selected':''}>PASSWRD_FRM_STR</option>
+<option value="LINK" ${type==='LINK'?'selected':''}>HTML_LINK</option>
+                    </select>
+                    <input type="text" placeholder="SyncWTag..." style="width:100px" value="${item.tag || ''}" oninput="setTag(${idx}, this.value)">
+                    <label style="font-size:0.9rem; margin:0 5px;"> DefOn: <input type="checkbox" ${item.default?'checked':''} onchange="setDef(${idx}, this.checked)" style="width:16px;height:16px; vertical-align:middle;"></label>
+                    <button class="btn-l btn-add" onclick="add(${idx}, -1)">NewUp</button>
+                    <button class="btn-l btn-add" onclick="add(${idx}, 1)">NewDown</button>
+                    <button class="btn-l" onclick="mergeUp(${idx})" style="border-color:var(--h); color:var(--h)">MergeUp</button>
+                    <button class="btn-l btn-del" onclick="remove(${idx})">X</button>
+                </div>
+	<textarea style="resize:vertical; min-height:42px; color: ${colors[type]}; border-color: #333;" ${type==='END'?'disabled placeholder="END_BLOCK (No data)"':''} oninput="sync(${idx}, this.value)">${val}</textarea>
+                
+            `;
+            root.appendChild(brick);
+        });
+
+        // Drag Listener
+        root.addEventListener('dragover', handleDragOver);
+
+    } else {
+        // --- DISPLAY MODE: RENDERING THE FUNCTIONAL UI ---
+        const stack = [root];
+        data.forEach((item, idx) => {
+	    if (item === null || item === undefined) return;
+            const p = stack[stack.length - 1];
+            
+            if (item.BLOCK === "START") {
+                const h = document.createElement("div"); 
+                h.style.display = "flex"; 
+                h.style.alignItems = "center";
+                
+                const cb = document.createElement("input"); 
+                cb.type = "checkbox"; 
+                cb.id = "f_" + idx; 
+                cb.checked = item.default; 
+                cb.style.width = "auto"; 
+                cb.onclick = run;
+                
+                const lb = document.createElement("span"); 
+                lb.className = "comment-pill type-start"; 
+                lb.innerText = item.descr || "";
+                
+                h.appendChild(cb); h.appendChild(lb); p.appendChild(h);
+                
+                const n = document.createElement("div"); 
+                n.id = "b_" + idx; 
+                n.className = "nested type-start"; 
+                p.appendChild(n); 
+                stack.push(n);
+            } 
+            else if (item.BLOCK === "END") { 
+                stack.pop(); 
+            }
+	    else if (item.BLOCK === "LINK") {
+    		const a = document.createElement("a");
+    		a.href = item.text || "#";
+    		a.target = "_blank"; // Opens in new tab
+    		a.className = "comment-pill_LINK"; 
+    		a.style.color = "var(--blue)";
+    		a.style.textDecoration = "underline";
+    		a.innerText = item.descr || item.text || "Link";
+    		p.appendChild(a);
+	    }
+            else if (item.COMMENT) { 
+                const c = document.createElement("span"); 
+                c.className = "comment-pill type-comment"; 
+                c.innerText = item.COMMENT; 
+                p.appendChild(c); 
+            }
+            else if (typeof item === 'string') { 
+                const s = document.createElement("span"); 
+                s.className = "ghost type-string"; 
+                s.innerText = item; 
+                p.appendChild(s); 
+            }
+            else { 
+   		const i = document.createElement(item.area ? "textarea" : "input"); 
+    		i.id = "f_" + idx; 
+    
+   		 // Check for the specific block type to apply Magenta
+    		if (item.BLOCK === 'INPUT_REGEX_SAFE') {
+        		i.className = "type-regex-safe";
+		} else if (item.BLOCK === 'CRYPTO_GEN') {
+    			i.className = "type-crypto";
+    		} else {
+        		i.className = item.area ? "type-area" : "type-input"; 
+    		}
+
+   		 i.value = item.text || ""; 
+    		i.oninput = () => sync(idx, i.value); 
+    		p.appendChild(i); 
+	    }
+        });
+    }
+    run(); // Final output refresh
+}
+let lastTarget = null; // Track the last element we hovered over
+
+function startDrag(e, idx) { 
+    dragSrcIdx = idx; 
+    // Delay adding class so the drag-ghost remains visible
+    setTimeout(() => e.target.closest('.brick').classList.add('dragging'), 0); 
+}
+let scrollInterval;
+let startY = 0; // Where the mouse was when we grabbed the brick
+let currentY = 0; // Where the mouse is now
+
+// 1. Listen for the initial grab
+document.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains('handle')) {
+        startY = e.clientY;
+    }
+});
+
+// 2. Track the movement delta
+document.addEventListener('mousemove', (e) => {
+    currentY = e.clientY;
+});
+
+function handleDragOver(e) {
+    e.preventDefault();
+    const root = document.getElementById("ui");
+    const dragging = document.querySelector('.dragging');
+    if (!dragging) return;
+
+    // SCROLL LOGIC: Joystick Mode
+    clearInterval(scrollInterval);
+    
+    // Calculate distance from start (the "Pull")
+    const delta = currentY - startY;
+    
+    // Deadzone of 40px so it doesn't drift while you're just moving locally
+    if (Math.abs(delta) > 40) {
+        // Speed ramps up the further you pull (divided by 15 for control)
+        const speed = delta / 15; 
+        scrollInterval = setInterval(() => window.scrollBy(0, speed), 10);
+    }
+
+    // POSITION LOGIC (Throttled)
+    const target = getDragAfterElement(root, e.clientY);
+    if (target !== lastTarget) {
+        lastTarget = target;
+        if (!target) root.appendChild(dragging); 
+        else root.insertBefore(dragging, target);
+    }
+}
+
+function endDrag(e) { 
+    clearInterval(scrollInterval); 
+    startY = 0; // Reset joystick
+    e.target.closest('.brick').classList.remove('dragging'); 
+    capture();
+    const bricks = [...document.querySelectorAll('.brick')];
+    pool[cur] = bricks.map(b => pool[cur][b.dataset.idx]);
+    load(cur); 
+}
+
+
+// Update the listener in your load() function
+if (isEdit) {
+    // ... inside the isEdit loop ...
+    root.addEventListener('dragover', handleDragOver);
+}
+
+
+function getDragAfterElement(c, y) {
+    const els = [...c.querySelectorAll('.brick:not(.dragging)')];
+    return els.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) return { offset, element: child };
+        else return closest;
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function shiftPool(dir) {
+    const keys = Object.keys(pool);
+    const idx = keys.indexOf(cur);
+    const targetIdx = idx + dir;
+
+    // Bounds check: can't move past the start or end
+    if (targetIdx < 0 || targetIdx >= keys.length) return;
+
+    capture(); // Save state for Undo
+
+    // Swap the keys in our temporary array
+    [keys[idx], keys[targetIdx]] = [keys[targetIdx], keys[idx]];
+
+    // Rebuild the pool object in the new order
+    const newPool = {};
+    keys.forEach(k => {
+        newPool[k] = pool[k];
+    });
+
+    pool = newPool; 
+    boot(cur); // Refresh the dropdown and UI
+}
+
+function shift(idx, dir) {
+    const targetIdx = idx + dir;
+    // Bounds check: don't move above 0 or below the end
+    if (targetIdx < 0 || targetIdx >= pool[cur].length) return;
+    
+    capture(); // Save for undo
+    const arr = pool[cur];
+    // Simple swap: [a, b] = [b, a]
+    [arr[idx], arr[targetIdx]] = [arr[targetIdx], arr[idx]];
+    
+    load(cur); // Refresh display
+}
+
+function setType(idx, type) {
+    capture(); 
+    const old = pool[cur][idx]; 
+    const val = (typeof old === 'string') ? old : (old.text || old.COMMENT || old.descr || "");
+    // Change this line:
+//const val = ((typeof old === 'string' ? old : (old.text || old.COMMENT || old.descr || "")) || "..."); 
+// Adding || "..." at the end ensures val is NEVER an empty string.
+
+    
+    if (type === 'string') pool[cur][idx] = val;
+    else if (type === 'INPUT_REGEX_SAFE') {
+        pool[cur][idx] = { text: val, BLOCK: "INPUT_REGEX_SAFE" }; 
+    }
+    else if (type === 'CRYPTO_GEN') {
+        pool[cur][idx] = { text: val, BLOCK: "CRYPTO_GEN" }; 
+    }
+    else if (type === 'LINK') {
+        // Here is the fix: link and descr are the same
+        pool[cur][idx] = { BLOCK: "LINK", text: val, descr: val };
+    }
+    else if (type === 'COMMENT') pool[cur][idx] = { COMMENT: val };
+    else if (type === 'START') pool[cur][idx] = { BLOCK: "START", descr: val, default: true };
+    else if (type === 'END') pool[cur][idx] = { BLOCK: "END" };
+    else if (type === 'area') pool[cur][idx] = { text: val, area: true };
+    else pool[cur][idx] = { text: val };
+    load(cur);
+}
+
+function setTag(idx, val) { if (pool[cur][idx] instanceof Object) { pool[cur][idx].tag = val; run(); } }
+function setDef(idx, val) { if (pool[cur][idx].BLOCK) { pool[cur][idx].default = val; run(); } }
+
+function sync(idx, val) {
+    const item = pool[cur][idx];
+    if (typeof item === 'string') pool[cur][idx] = val; 
+    else if (item.BLOCK === 'START') item.descr = val;
+    else if (item.COMMENT !== undefined) item.COMMENT = val;
+    else if (item.BLOCK === 'LINK') {
+        // Keep them mirrored
+        item.text = val;
+        item.descr = val;
+    }
+    else if (item.BLOCK !== 'END') item.text = val;
+    
+    if (item.tag) pool[cur].forEach((o, i) => { 
+	if(o == null || i == null){ return;};
+        if(o.tag === item.tag) { 
+            o.text = val; 
+            const el = document.getElementById("f_"+i); 
+            if(el) el.value = val; 
+        }
+    });
+    run();
+}
+function add(idx, dir) { capture(); pool[cur].splice(dir === -1 ? idx : idx + 1, 0, { text: "" }); load(cur); }
+function remove(idx) { capture(); pool[cur].splice(idx, 1); load(cur); }
+
+function mergeUp(idx) {
+    if (idx <= 0) return; // Nowhere to merge
+    capture();
+    
+    const prev = pool[cur][idx - 1];
+    const item = pool[cur][idx];
+    
+    // Extract content from current item
+    const content = (typeof item === 'string') ? item : (item.text || item.descr || item.COMMENT || "");
+    
+    // Glue it to the previous item based on its type
+    if (typeof prev === 'string') {
+        pool[cur][idx - 1] = prev + content;
+    } else if (prev.BLOCK) {
+        prev.descr = (prev.descr || "") + content;
+    } else if (prev.COMMENT !== undefined) {
+        prev.COMMENT = (prev.COMMENT || "") + content;
+    } else {
+        prev.text = (prev.text || "") + content;
+    }
+    
+    // Remove the now-empty brick and refresh
+    pool[cur].splice(idx, 1);
+    load(cur);
+}
+
+// IO Handlers
+function shred() {
+    capture(); const raw = document.getElementById("io").value.trim(); if (!raw) return;
+    pool[cur] = raw.split(/(\s+)/).filter(p => p).map(p => p.trim()==="" ? p : {text: p});
+    boot(Object.keys(pool).pop());
+    document.getElementById("io").value = "";
+}
+
+// 2. Extracts the marker and jumps to it
+function imp() {
+    try {
+        const rawText = document.getElementById("io").value.trim();
+        if (!rawText) return;
+        const raw = JSON.parse(rawText);
+        capture();
+        
+        let target = null;
+        
+        if (typeof raw === 'object' && !Array.isArray(raw)) {
+            // Check if the JSON has our special marker
+            if (raw["_ACTIVE_MARKER_"]) {
+                target = raw["_ACTIVE_MARKER_"];
+                delete raw["_ACTIVE_MARKER_"]; // Remove it so it doesn't show in dropdown
+            }
+            pool = raw; 
+        } else if (Array.isArray(raw)) {
+            target = "Imported_" + Math.floor(Math.random()*1000);
+            pool[target] = raw;
+        }
+        
+        document.getElementById("io").value = ""; 
+        boot(target);
+    } catch(e) { alert("JSON ERROR: Check syntax."); }
+}
+
+// 1. Injects the current profile name into the JSON string
+function expAll() { 
+    let exportData = { ...pool };
+    exportData["_ACTIVE_MARKER_"] = cur; 
+    document.getElementById("io").value = JSON.stringify(exportData, null, 2); 
+    copy("io"); 
+}
+
+// Execution
+async function run() { // Add 'async' here
+    const data = pool[cur]; let str = ""; let skips = [false];
+    
+    for (let i = 0; i < data.length; i++) { // Use a for-loop for async support
+        const item = data[i];
+	if (item === null || item === undefined) continue;
+        const isSkip = skips[skips.length - 1];
+        
+        if (item.BLOCK === "START") {
+            const active = document.getElementById("f_"+i)?.checked;
+            if (document.getElementById("b_"+i)) document.getElementById("b_"+i).style.display = active ? "block" : "none";
+            skips.push(isSkip || !active);
+        } else if (item.BLOCK === "END") {
+            skips.pop();
+        } else if (!isSkip && !item.COMMENT) {
+            let content = (typeof item === 'string') ? item : (item.text || "");
+            
+            if (item.BLOCK === 'INPUT_REGEX_SAFE') content = bunkerSanitize(content);
+            
+            // --- THE SCRAMBLER BLOCK ---
+            if (item.BLOCK === 'CRYPTO_GEN' && content) {
+                content = await bunkerHash(content); // Always turns "hello" into "2cf24dba..."
+            }
+            
+            str += content;
+        }
+    }
+    document.getElementById("out").value = str;
+
+	// Sync the new dropdown
+    updateLinePicker();
+}
+
+async function bunkerHash(str) {
+    if (!str) return "";
+    const msgUint8 = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    // Generates a 16-character repeatable scramble
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
+}
+
+// 3. The Grand Central Station for loading
+function boot(n) { 
+    const s = document.getElementById("mod-sel"); 
+    s.innerHTML = ""; 
+    
+    // Check if the pool itself has a marker (for manual file-pasting)
+    if (pool["_ACTIVE_MARKER_"]) {
+        n = pool["_ACTIVE_MARKER_"];
+        delete pool["_ACTIVE_MARKER_"];
+    }
+
+    // Logic: Provided 'n' -> or current 'cur' -> or first key in pool
+    let targetProfile = n || cur || Object.keys(pool)[0];
+    
+    // Final safety: if the target doesn't exist, default to the first key
+    if (!pool[targetProfile]) targetProfile = Object.keys(pool)[0];
+    
+    Object.keys(pool).forEach(k => { 
+        const o = document.createElement("option"); 
+        o.innerText = k; 
+        o.selected = (k === targetProfile); 
+        s.appendChild(o); 
+    }); 
+    
+    load(targetProfile); 
+}
+async function saveFile() { 
+    // Capture current state before generating doc
+    
+    // 1. Sync the active marker into the actual pool object
+    pool["_ACTIVE_MARKER_"] = cur;
+
+    capture(); 
+    
+    const content = copy_this_doc_head_n_body__gen_doc();
+
+    // Check if the browser supports the File Picker API
+    if ('showSaveFilePicker' in window) {
+        try {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: `Bunker_${cur}.html`,
+                types: [{
+                    description: 'HTML Document',
+                    accept: {'text/html': ['.html']},
+                }],
+            });
+            const writable = await handle.createWritable();
+            await writable.write(content);
+            await writable.close();
+        } catch (err) {
+            console.log("Save cancelled or failed", err);
+        }
+    } else {
+        // Fallback for older browsers or non-supported environments
+        const a = document.createElement("a"); 
+        a.href = URL.createObjectURL(new Blob([content], {type: "text/html"})); 
+        a.download = `Bunker_${cur}.html`; 
+        a.click(); 
+    }
+}
+
+function copy(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var t = el.value || el.innerText;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(t);
+  } else {
+    el.select ? el.select() : copyText(t); // Use text fallback if not selectable
+    if (!document.execCommand('copy')) window.prompt("Copy manually:", t);
+  }
+}
+
+
+
+// --- DROPBOX LOGIC ---
+const dropZone = document.getElementById('drop-zone');
+
+// Prevent browser from just opening the file
+['dragover', 'drop'].forEach(evt => {
+    window.addEventListener(evt, e => e.preventDefault());
+});
+
+
+dropZone.addEventListener('drop', async (e) => {
+    const files = [...e.dataTransfer.files]; // Convert FileList to Array
+    if (!files.length) return;
+
+    capture(); // Save Undo state before the mass-merge
+    let loadCount = 0;
+
+    for (const file of files) {
+        const text = await file.text();
+        let payload = text;
+        const marker = "///////////JSON DATA SAVED IN copy_this_doc" + "//////";
+
+        // 1. EXTRACTION: Is it a Bunker HTML?
+        if (text.includes(marker)) {
+            const parts = text.split(marker);
+            if (parts.length >= 3) payload = parts[1].trim();
+        }
+
+        // 2. PARSING & MERGING
+        try {
+            const data = JSON.parse(payload);
+            
+            // If it's a full library (Object), merge keys into our pool
+            if (typeof data === 'object' && !Array.isArray(data)) {
+                // Remove the active marker so it doesn't pollute the keys
+                delete data["_ACTIVE_MARKER_"]; 
+                
+                for (let key in data) {
+                    pool[key] = data[key]; // Overwrites existing if keys match
+                }
+                loadCount++;
+            } 
+            // If it's just a single group (Array), give it a name and shove it in
+            else if (Array.isArray(data)) {
+                const newKey = "Imported_" + file.name.replace(/\.[^/.]+$/, "");
+                pool[newKey] = data;
+                loadCount++;
+            }
+        } catch (err) {
+            console.error(`Failed to parse ${file.name}:`, err);
+        }
+    }
+
+    // 3. UI REFRESH
+    boot(cur); 
+    dropZone.innerText = `[ MERGED ${loadCount} FILES ]`;
+    setTimeout(() => { dropZone.innerText = "[ DRAG & DROP JSON/HTML HERE ]"; }, 2000);
+});
+
+function renamePool() {
+    let newName = prompt(`Rename profile "${cur}" to:`, cur);
+    if (!newName || newName === cur) return;
+    
+    if (pool[newName]) {
+        alert("Error: A profile with that name already exists!");
+        return;
+    }
+
+    capture(); // Save undo state
+    pool[newName] = pool[cur]; // Copy data to new key
+    delete pool[cur];          // Delete old key
+    boot(newName);             // Refresh UI with new name selected
+}
+
+function clonePool() {
+    let cloneName = prompt(`Name for the clone of "${cur}":`, cur + "_COPY");
+    if (!cloneName) return;
+
+    if (pool[cloneName]) {
+        alert("Error: That name is already taken!");
+        return;
+    }
+
+    capture();
+    // We stringify and parse to ensure a "Deep Clone" 
+    // This prevents the clone from being linked to the original in memory
+    pool[cloneName] = JSON.parse(JSON.stringify(pool[cur])); 
+    boot(cloneName);
+}
+
+// Optional: Click to upload instead of drag
+dropZone.addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            document.getElementById("io").value = ev.target.result;
+            imp();
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+});
+
+function importSingleEntry() {
+    try {
+        // 1. Get the text from your IO drawer
+        const rawText = document.getElementById("io").value.trim();
+        if (!rawText) return alert("Paste a JSON library into the box first!");
+        
+        const externalData = JSON.parse(rawText);
+        
+        // 2. Identify the target via the baked-in marker
+        const targetKey = externalData["_ACTIVE_MARKER_"];
+        
+        if (!targetKey || !externalData[targetKey]) {
+            alert("This JSON doesn't have an active entry marker to pull from.");
+            return;
+        }
+
+        // 3. The Injection
+        let newKey = targetKey;
+        if (pool[newKey]) {
+            newKey = prompt(`"${targetKey}" already exists. Name for the imported version?`, targetKey + "_IMP");
+        }
+        
+        if (newKey) {
+            capture(); // Save Undo
+            // Deep clone just the one selected entry into our current pool
+            pool[newKey] = JSON.parse(JSON.stringify(externalData[targetKey]));
+            
+            // Clear IO box and jump to it
+            document.getElementById("io").value = "";
+            boot(newKey); 
+            alert(`Surgically imported [${newKey}]!`);
+        }
+
+    } catch (err) {
+        alert("JSON ERROR: Failed to read the IO box contents.");
+    }
+}
+
+function bunkerSanitize(str) {
+    if (!str) return "";
+    // Added / and ` to the escape list
+    return str.replace(/[\\/`"'$&|<>()[\]{}*?; ]/g, '\\$&');
+}
+
+document.addEventListener('keydown', function(e) {
+    // 1. THE SAVE HIJACK (Ctrl+S)
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        saveFile();
+    }
+
+    // 2. THE UNDO HIJACK (Ctrl+Z)
+    if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+        // Only trigger if we aren't currently typing in a textarea/input
+        // (We want to let the browser handle undo inside text boxes naturally)
+        if (document.activeElement.tagName !== 'TEXTAREA' && 
+            document.activeElement.tagName !== 'INPUT') {
+            
+            e.preventDefault();
+            console.log("Bunker: Global Undo Triggered");
+            undo();
+        }
+    }
+});
+
+/////////////////////////////////////////////////////
+///////// PAGE SAVING (not vibe coded)
+////////////// KEEP EVERYTHING IN -header AND body tag-
+///////////////	SWAP header tag with: <header id="header_div"> 
+////////////////		AND
+//////////////// SWAP body tag with <body id="body_div" 
+///////////////	  onload="copy_this_doc_body_head_n_body__run_onload();">
+//////// WARNING: may save modified text areas if
+///////////// they populate in page on reload AFTER filling it out. 
+/////////////////////////////////
+/////////////////////////////////
+var copy_this_doc_head_n_body__doc_copy = "";
+function copy_this_doc_body_head_n_body__run_onload(){
+	copy_this_doc_head_n_body__doc_copy = `
+<!DOCTYPE html>
+<html>
+<head id="header_div">
+`
++ document.getElementById("header_div").innerHTML
++`
+</head>
+<body  id="body_div" onload=` + 
+" copy_this_doc_body_head_n_body__run_onload();" 
++"> "
++ document.getElementById("body_div").innerHTML
++` 
+</body>
+</html>
+`;
+  for(var i=0; i< c_body_head_n_body__boot_cmmands.length; i+=1){
+		c_body_head_n_body__boot_cmmands[i]();
+   }
+}
+
+// returns a  string of page-s initial state, plus injecting the 
+//	data between COMMENT TAG: 
+//	copy_this_doc_body_head_n_body__INJECT_SAVED_DATA_BETWEEN_TAGS
+var copy_this_doc_head_n_body__globalThis = this;
+function copy_this_doc_head_n_body__gen_doc(){
+	var tmpOut = copy_this_doc_head_n_body__doc_copy;
+	tmpOut = tmpOut.split(
+	   copy_this_doc_body_head_n_body__INJECT_SAVED_DATA_BETWEEN_TAGS);
+	tmpOut[1] = "\n" +  JSON.stringify( 
+	   copy_this_doc_head_n_body__globalThis[
+	    copy_this_doc_body_head_n_body__json_var_to_inject_globalname
+		], null, 1)
+	    + "\n";
+	tmpOut = tmpOut.join(
+	   copy_this_doc_body_head_n_body__INJECT_SAVED_DATA_BETWEEN_TAGS);
+	return tmpOut;
+
+}
+/////////////////////////////////
+//// EDIT BELOW FOR SETTING UP INIT!!!!
+////////   --- CHANGE ON THIS, it is a plain string,
+//////// copy_this_doc_body_head_n_body__run_onload(); 
+////////   GOES FIRST!!!
+/////////////////////////////////////
+
+var copy_this_doc_body_head_n_body__INJECT_SAVED_DATA_BETWEEN_TAGS=
+         "///////////JSON DATA SAVED IN copy_this_doc" + "//////";
+
+var copy_this_doc_body_head_n_body__json_var_to_inject_globalname = 
+	"pool";
+
+//////////////////////////////////
+// ADD ALL BOOT COMMANDS HERE, FUNCTION DATA TYPE, ONE LINE!!!: 
+/////////////////////
+var c_body_head_n_body__boot_cmmands = [boot];
+
+
+
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+
+
+
+
+</script>
+
+
+<div style="max-width: 1000px; margin: 10px auto; font-family: monospace;">
+    
+
+
+
+
+<!------ data too js script wasm works---------->
+<!------ data too js script wasm works---------->
+<!------ data too js script wasm works---------->
+<!------ data too js script wasm works---------->
+
+
+<style>
+        :root { --p: #00ff41; --h: #aaffaa; --bg: #050505; --dim: #333; --blue: #55aaff; --red: #ff5555; --magenta: #ff55ff; --orange: #ffaa00; }
+        body { background: var(--bg); color: var(--p); font-family: monospace; padding: 20px; margin: 0; line-height: 1.4; }
+        .container { max-width: 1000px; margin: auto; }
+        .io-drawer { border: 2px dashed var(--blue); padding: 40px; margin-top: 20px; background: #000810; text-align: center; cursor: pointer; border-radius: 4px; transition: 0.2s; }
+        .io-drawer:hover { border-color: var(--p); background: #001525; }
+        #manifest-list { display: flex; flex-direction: column-reverse; }
+        .manifest-card { background: #0a0a0a; border: 1px solid var(--dim); padding: 15px; margin-top: 15px; border-left: 4px solid var(--magenta); }
+        .code-block { background: #000; color: var(--blue); padding: 12px; display: block; margin-top: 10px; font-size: 0.85rem; white-space: pre-wrap; border: 1px solid #111; line-height: 1.6; overflow-x: auto; }
+        .label { color: var(--magenta); font-weight: bold; text-transform: uppercase; font-size: 0.75rem; }
+        .p-type { color: #888; font-size: 0.8rem; }
+        .p-prob { color: var(--orange); font-style: italic; font-size: 0.7rem; }
+        .p-int { color: #555; font-style: italic; font-size: 0.7rem; }
+        input[type="file"] { display: none; }
+    </style>
+
+<h1>
+<div onclick="var lii = document.getElementById('min-data_to_js'); this.firstElementChild.innerText = (lii.style.display === 'none' ? '[-] DATA_TOO_JS_SCRIPT_WASM_WORKS' : '[+] DATA_TOO_JS_SCRIPT_WASM_WORKS'); lii.style.display = (lii.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] DATA_TOO_JS_SCRIPT_WASM_WORKS</span>
+    </div>
+</h1>
+<!-- The actual code(Starts Hidden) -->
+    <div id="min-data_to_js" style="display: none; padding: 10px 0;">
+
+<div class="container">
+    <div class="io-drawer" id="drop-zone" onclick="document.getElementById('file-input').click()">
+        <b style="font-size:1.2rem; color:var(--blue);">[ DROP ASSETS FOR V5.1.1 FULL SPECTRUM BAKE ]</b>
+        <input type="file" id="file-input" multiple="" onchange="handleFiles(this.files)">
+    </div>
+    <div id="dashboard" style="display:none; margin-top:30px;"><div id="manifest-list"></div></div>
+</div>
+
+<script>
+    function bytesToBase64(bytes) {
+        let binary = ''; var len = bytes.byteLength; var chunk = 8192; 
+        for (let i = 0; i < len; i += chunk) { binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk)); }
+        return btoa(binary);
+    }
+
+    async function probeWasm(buffer) {
+        try {
+            var module = await WebAssembly.compile(buffer);
+            var exports = WebAssembly.Module.exports(module);
+            
+            // GHOST PROXY: Satisfies all linker requirements for inspection
+            var stub = () => 0;
+            var handler = { get: () => new Proxy(stub, handler) };
+            var ghostImports = new Proxy({}, handler);
+
+            let api = {};
+            try {
+                var instance = await WebAssembly.instantiate(module, ghostImports);
+                api = instance.exports;
+            } catch(e) { }
+
+            return exports.map(e => {
+                var name = e.name;
+                var isInternal = name.startsWith('_') || name.includes('malloc') || name.includes('free');
+                var item = api[name];
+                
+                let line = "";
+                if (e.kind === "function") {
+                    var argCount = item ? item.length : "?";
+                    var n = name.toLowerCase();
+                    var isStr = n.includes("str") || n.includes("msg") || n.includes("txt") || n.includes("name");
+                    var typeLabel = isStr ? "char*" : "int/float";
+                    
+                    line = ` ${name}(${argCount === "?" ? "..." : argCount}) `;
+                    line += `<span class="p-type">? C-Type: ${typeLabel}</span> `;
+                    if (isStr) line += `<span class="p-prob"> [Probable String]</span>`;
+                } else {
+                    line = ` [STATIC VAR] api.${name} `;
+                }
+
+                if (isInternal) line += `<span class="p-int"> [Internal Utility]</span>`;
+                return ` ${line}`;
+            }).join('\n');
+        } catch (err) { return " <span style='color:var(--red)'>[Probe Error: Binary Corrupt]</span>"; }
+    }
+
+    async function handleFiles(files) {
+        if (!files.length) return;
+        document.getElementById('dashboard').style.display = "block";
+        var manifestList = document.getElementById('manifest-list');
+
+        for (let file of files) {
+            var name = file.name.replace(/[^a-zA-Z0-9]/g, '_');
+            var ext = file.name.split('.').pop().toLowerCase();
+            var arrayBuffer = await file.arrayBuffer();
+            var b64 = bytesToBase64(new Uint8Array(arrayBuffer));
+
+            let example = ""; let probeResult = ""; let loaderCode = "";
+            
+            if (ext === 'wasm') {
+                probeResult = await probeWasm(arrayBuffer);
+                loaderCode = `
+var ${name}_load = async (imports = {}) => {
+    var pulse = await WebAssembly.instantiate(${name}.buf, imports);
+    var raw = pulse.instance.exports;
+    var mem = raw.memory;
+
+    var bridge = {
+        push: (v) => {
+            if (typeof v !== 'string') return v;
+            var b = new TextEncoder().encode(v + "\\0");
+            var p = raw.malloc ? raw.malloc(b.length) : 0;
+            if(p) new Uint8Array(mem.buffer).set(b, p);
+            return p;
+        },
+        pull: (p) => {
+            if (!p || typeof p !== 'number') return "";
+            var v = new Uint8Array(mem.buffer); let e = p;
+            while (v[e] !== 0 && e < v.length) e++;
+            return new TextDecoder().decode(v.slice(p, e));
+        }
+    };
+
+    var handle = (k, a, t) => {
+        var i = raw[k]; if (i === undefined) return null;
+        var trash = [];
+        var args = a.map(arg => {
+            if (typeof arg === 'string') { var p = bridge.push(arg); trash.push(p); return p; }
+            return arg;
+        });
+        var res = (typeof i === 'function') ? i(...args) : i;
+        if (raw.free) trash.forEach(p => raw.free(p));
+        return (t === 'str') ? bridge.pull(res) : res;
+    };
+
+    return {
+        readStr: (k, ...a) => handle(k, a, 'str'),
+        readInt: (k, ...a) => handle(k, a, 'int'),
+        write: (k, v) => { if (raw[k] !== undefined) raw[k] = (typeof v === 'string') ? bridge.push(v) : v; },
+        raw: raw,      // [RAW] Direct export table access
+        url: ${name}.url, // [URL] Blob URL for Workers/v86
+        buf: ${name}.buf  // [ARRAYSTREAM] Raw Uint8Array bytes
+    };
+};`;
+                example = `// 1. Initialize the module
+var api = await ${name}_load();
+
+// 2. Data Streams & Accessors
+console.log(api.raw); // Full WASM Export Table
+console.log(api.url); // Blob URL for Workers/v86/Emulation
+console.log(api.buf); // The 'ArrayStream' (Uint8Array) raw bytes
+
+// 3. String/Int Bridge (C-style auto-conversion)
+//    (1st param is a method from the ARCHITECTURAL PROBE list below)
+var userName = api.readStr("get_logged_user", "param1", "param2" ...); //if FUNCT
+var score    = api.readInt("add_points", 100, "param2"); //if FUNCT
+// works for var too...
+var userName = api.readStr("get_logged_user"); // if VAR
+var score    = api.readInt("add_points"); // if VAR
+
+
+
+
+// 4. Writing values
+api.write("global_volume", 0.8);
+api.write("status_text", "Active"); // Auto-pushes string to pointer`;
+            } else {
+                example = `// Static Asset Access:
+console.log(${name}.url); // Blob URL for img(html-element), video(html-element), or fetch()
+console.log(${name}.buf); // Raw 'ArrayStream' (Uint8Array) bytes`;
+            }
+
+            var utils = `var PulseUtils = { hydrate: (b, t) => { var bin = atob(b); var u8 = new Uint8Array(bin.length); for(let i=0; i<bin.length; i++) u8[i] = bin.charCodeAt(i); return { buf: u8.buffer, url: URL.createObjectURL(new Blob([u8.buffer], {type: t})) }; } };\n`;
+            var fileContent = `/* STATIC-PULSE V5.1.1: ${file.name} */\n${utils}var ${name} = PulseUtils.hydrate("${b64}", "${file.type}");\n${loaderCode}`;
+
+            var card = document.createElement('div');
+            card.className = "manifest-card";
+            card.innerHTML = `
+                <span class="label">${ext.toUpperCase()} MODULE</span><br><b>pulse_${name}.js</b>
+                <div class="code-block">
+<span style="color:var(--magenta)">// [ USAGE DOCUMENTATION ]</span>\n${example}\n
+<span style="color:var(--magenta)">// [ ARCHITECTURAL PROBE ]</span>\n${probeResult || "Static Data Asset"}
+                </div>`;
+            manifestList.appendChild(card);
+
+            var blob = new Blob([fileContent], {type: 'text/javascript'});
+            var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `pulse_${name}.js`; a.click();
+        }
+    }
+
+    var dz = document.getElementById('drop-zone');
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => dz.addEventListener(e, (ev) => { ev.preventDefault(); ev.stopPropagation(); }, false));
+    dz.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files));
+</script>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!------ LINK TREE---------->
+<!------ LINK TREE---------->
+<!------ LINK TREE---------->
+<!------ LINK TREE---------->
+<!------ LINK TREE---------->
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('min-links'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] EXTERNAL TOOLS/LINKS' : '[+] EXTERNAL TOOLS/LINKS'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] EXTERNAL TOOLS/LINKS---MAKE A DROP DOWN MENU OPTION IN MAIN TOP-THING ABOVE FOR THIS, IT"S EDABLE IN SCRIPT ITSELF, CAN HAVE A 'NOTES' ON TOO!!!</span>
+    </div>
+
+    <!-- The Links (Starts Hidden) -->
+    <div id="min-links" style="display: none; padding: 10px 0;">
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85em; line-height: 1.6;">
+
+	TEST 1 2 d <br>
+	3 4 <br>
+	ONLINE LINUX DISROS:<br>
+	https://bellard.org/jslinux/ <br>
+	https://copy.sh/v86/ <br>
+
+            <li><a href="https://github.com" target="_blank" style="color: var(--blue); text-decoration: none;">&gt; GITHUB_REPOS</a></li>
+
+            <li><a href="#io-box" style="color: var(--p); text-decoration: none;">&gt; AETHER_BRIDGE</a></li>
+
+            <li><a href="#" style="color: var(--dim); text-decoration: none;">&gt; SYSTEM_LOGS (N/A)</a></li>
+
+
+        </ul>
+    </div>
+</h1></div>
+
+ 
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+</body>
+</html>
