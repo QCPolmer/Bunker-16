@@ -27,6 +27,14 @@
 
 
 
+
+
+
+
+
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bunker v16 (Patch)</title>
 
@@ -63,7 +71,7 @@ var pool =
    "area": true
   },
   {
-   "text": "",
+   "text": " ",
    "area": true
   }
  ],
@@ -193,7 +201,7 @@ var pool =
   },
   "\"",
   {
-   "text": "target_word",
+   "text": "file_",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -220,7 +228,7 @@ var pool =
   },
   "\n\ngrep -rl \"",
   {
-   "text": "target_word",
+   "text": "file_",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -230,7 +238,7 @@ var pool =
   },
   "\ngrep -rl \"",
   {
-   "text": "target_word",
+   "text": "file_",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -243,7 +251,7 @@ var pool =
   "",
   " | xargs sed -i s/",
   {
-   "text": "target_word",
+   "text": "file_",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -398,8 +406,16 @@ var pool =
 
 
 
+
+
+
+
+
+
+
+
 </head>
-<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                        
+<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                                
 
 <div class="container">
     <div class="toolbar" style="display: flex; gap: 5px; background: #050505; border-bottom: 2px solid var(--dim); padding: 5px 0;">
@@ -1870,6 +1886,243 @@ console.log(${name}.buf); // Raw 'ArrayStream' (Uint8Array) bytes`;
 
 
 
+
+<!------ AUDIO RECORDER---------->
+<!------ AUDIO RECORDER---------->
+<!------ AUDIO RECORDER---------->
+<!------ AUDIO RECORDER---------->
+<!------ AUDIO RECORDER---------->
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('audio_record'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] AUDIO-RECORDER' : '[+] AUDIO-RECORDER'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] AUDIO-RECORDER</span>
+    </div>
+
+    <!-- The cmd (Starts Hidden) -->
+    <div id="audio_record" style="display: none; padding: 10px 0;">
+        
+
+<div id="audio-app" style="border: 1px solid var(--p); padding: 10px; margin: 10px 0;">
+    <h3 style="color: var(--p);">[ AUDIO_RECORDER ]</h3>
+    <button id="rec-btn" onclick="handleAudioRecord()" style="background:transparent; border:1px solid var(--p); color:var(--p); padding:5px;">[ START RECORDING ]</button>
+    <div id="audio-output" style="margin-top:10px;"></div>
+    
+    <script>
+        let rec = null; let chunks = [];
+        async function handleAudioRecord() {
+            const btn = document.getElementById('rec-btn');
+            if (!rec || rec.state === 'inactive') {
+                const s = await navigator.mediaDevices.getUserMedia({ audio: true });
+                rec = new MediaRecorder(s);
+                chunks = [];
+                rec.ondataavailable = e => chunks.push(e.data);
+                rec.onstop = () => {
+                    const url = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+                    document.getElementById('audio-output').innerHTML = `<a href="${url}" download="recording.webm">DOWNLOAD_VOICE_MEMO</a>`;
+                };
+                rec.start(); btn.innerText = "[ STOP RECORDING ]";
+            } else {
+                rec.stop(); btn.innerText = "[ START RECORDING ]";
+            }
+        }
+    </script>
+</div>
+
+    </div>
+</h1>
+
+
+
+
+
+
+<!------ BUNKER LOCALSTORAGE---------->
+<!------ BUNKER LOCALSTORAGE---------->
+<!------ BUNKER LOCALSTORAGE---------->
+<!------ BUNKER LOCALSTORAGE---------->
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('bunker_hider'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] STORE_N_LOCAL_STORAGE' : '[+] STORE_N_LOCAL_STORAGE'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] STORE_N_LOCAL_STORAGE</span>
+    </div>
+
+    <!-- The cmd (Starts Hidden) -->
+    <div id="bunker_hider" style="display: none; padding: 10px 0;">
+        
+<div id="vault-module" style="border:1px solid var(--blue); padding:15px; margin:10px 0; max-width:400px; background:rgba(0,0,20,0.3);">
+    <h3 style="color:var(--blue); margin-top:0;">[ SECURE_VAULT ]</h3>
+    
+    <input id="vault-pass" type="password" placeholder="PASSWORD" style="width:100%; background:black; color:cyan; border:1px solid var(--blue); margin-bottom:10px; padding:8px;">
+    <textarea id="vault-text" placeholder="NOTES" style="width:100%; height:80px; background:black; color:white; border:1px solid var(--blue); padding:5px;"></textarea>
+    
+    <div id="vault-drop-zone" style="border: 2px dashed var(--blue); padding: 20px; text-align: center; margin-top: 10px; cursor: pointer; background: rgba(0,0,0,0.5);" onclick="document.getElementById('vault-file').click()" ondragover="event.preventDefault(); this.style.borderColor='white';" ondragleave="this.style.borderColor='var(--blue)';" ondrop="event.preventDefault(); this.style.borderColor='var(--blue)'; document.getElementById('vault-file').files = event.dataTransfer.files; alert('File queued for Vault.');">
+        [ DRAG &amp; DROP FILE HERE ]
+    </div>
+    <input type="file" id="vault-file" style="display: none;">
+    
+    <div style="display:flex; gap:10px; margin-top:15px;">
+        <button onclick="vaultAction('save')" style="background:transparent; border:1px solid var(--blue); color:var(--blue); padding:8px;">[ LOCK ]</button>
+        <button onclick="vaultAction('load')" style="background:transparent; border:1px solid var(--blue); color:var(--blue); padding:8px;">[ UNLOCK ]</button>
+    </div>
+
+    <script>
+        // --- CORE VAULT ENGINE ---
+        async function vaultAction(mode) {
+            const pass = document.getElementById('vault-pass').value;
+            if (!pass) return alert("PASSWORD REQUIRED");
+
+            // Unique ID based on password prefix
+            const vaultID = 'BUNKER_VAULT_' + btoa(pass.slice(0, 4)).replace(/=/g, '');
+
+            if (mode === 'save') {
+                const textData = document.getElementById('vault-text').value;
+                const fileInput = document.getElementById('vault-file');
+                let fileBase64 = "";
+                
+                if (fileInput.files.length > 0) {
+                    fileBase64 = await new Promise(r => {
+                        let f = new FileReader();
+                        f.onload = () => r(f.result);
+                        f.readAsDataURL(fileInput.files[0]);
+                    });
+                }
+                const bundle = JSON.stringify({ text: textData, file: fileBase64 });
+                const encrypted = await AETHER_ENCRYPT(bundle, pass);
+                localStorage.setItem(vaultID, encrypted);
+                alert("Vault locked: " + vaultID);
+            } else {
+                const encrypted = localStorage.getItem(vaultID);
+                if (!encrypted) return alert("Vault not found.");
+                try {
+                    const decrypted = await AETHER_DECRYPT(encrypted, pass);
+                    const data = JSON.parse(decrypted);
+                    document.getElementById('vault-text').value = data.text;
+                    if (data.file) {
+                        const a = document.createElement('a');
+                        a.href = data.file; a.download = "retrieved_file";
+                        a.innerText = "[ DOWNLOAD ATTACHMENT ]";
+                        document.getElementById('vault-module').appendChild(a);
+                    }
+                } catch(e) { alert("Decryption failed."); }
+            }
+        }
+
+        // --- GLOBAL AETHER BRIDGE HELPERS ---
+        async function AETHER_ENCRYPT(text, password) {
+            const key = await getDerivedKey(password);
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const enc = new TextEncoder().encode(text);
+            const cipher = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc);
+            const combined = new Uint8Array(iv.length + cipher.byteLength);
+            combined.set(iv); combined.set(new Uint8Array(cipher), iv.length);
+            return btoa(String.fromCharCode(...combined));
+        }
+
+        async function AETHER_DECRYPT(b64, password) {
+            const key = await getDerivedKey(password);
+            const data = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+            const iv = data.slice(0, 12);
+            const cipher = data.slice(12);
+            const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, cipher);
+            return new TextDecoder().decode(plain);
+        }
+    </script>
+</div>
+
+    </div>
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------ TIMER---------->
+<!------ TIMER---------->
+<!------ TIMER---------->
+<!------ TIMER---------->
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('timer_hider'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] TIMER' : '[+] TIMER'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] TIMER</span>
+    </div>
+
+    <!-- The cmd (Starts Hidden) -->
+    <div id="timer_hider" style="display: none; padding: 10px 0;">
+        
+<div id="alarm-app" style="border: 1px solid var(--red); padding: 15px; margin: 10px 0; max-width: 300px; background: rgba(255,0,0,0.05);">
+    <h3 style="color: var(--red); margin-top: 0;">[ ALARM_SYSTEM ]</h3>
+    
+    <div style="display: flex; gap: 5px; align-items: center; margin-bottom: 10px;">
+        <input id="min-in" type="number" placeholder="M" style="background:black; color:white; border:1px solid var(--red); width:50px; padding:5px;">
+        :
+        <input id="sec-in" type="number" placeholder="S" style="background:black; color:white; border:1px solid var(--red); width:50px; padding:5px;">
+        <button id="ctrl-btn" onclick="toggleAlarm()" style="background:transparent; border:1px solid var(--red); color:var(--red); padding:5px;">[ START ]</button>
+        <button onclick="resetAlarm();toggleAlarm();" style="background:transparent; border:1px solid var(--red); color:var(--red); padding:5px;">[ RESET ]</button>
+    </div>
+
+    <div id="timer-display" style="font-family:monospace; font-size: 1.5em; color: var(--red);">00:00</div>
+
+    <script>
+        let alarmInterval = null;
+        let beepInterval = null;
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playBeep() {
+            const osc = audioCtx.createOscillator();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+            osc.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function resetAlarm() {
+            clearInterval(alarmInterval);
+            clearInterval(beepInterval);
+            alarmInterval = null;
+            beepInterval = null;
+            document.getElementById('timer-display').innerText = "00:00";
+            document.getElementById('ctrl-btn').innerText = "[ START ]";
+        }
+
+        function toggleAlarm() {
+            if (alarmInterval) { resetAlarm(); return; }
+            let total = (parseInt(document.getElementById('min-in').value) || 0) * 60 + (parseInt(document.getElementById('sec-in').value) || 0);
+            document.getElementById('ctrl-btn').innerText = "[ STOP ]";
+            alarmInterval = setInterval(() => {
+                total--;
+                document.getElementById('timer-display').innerText = `${String(Math.floor(total/60)).padStart(2,'0')}:${String(total%60).padStart(2,'0')}`;
+                if (total <= 0) {
+                    clearInterval(alarmInterval);
+                    if (Notification.permission === "granted") new Notification("BUNKER", { body: "TIME EXPIRED" });
+                    else Notification.requestPermission();
+                    beepInterval = setInterval(playBeep, 500);
+                }
+            }, 1000);
+        }
+    </script>
+</div>
+
+
+    </div>
+</h1>
+
+
+
+
+
+
+
+
+
 <!------ LINK TREE---------->
 <!------ LINK TREE---------->
 <!------ LINK TREE---------->
@@ -1904,6 +2157,30 @@ console.log(${name}.buf); // Raw 'ArrayStream' (Uint8Array) bytes`;
 
  
 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
 
 
  
