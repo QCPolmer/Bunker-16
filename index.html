@@ -37,6 +37,8 @@
 
 
 
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bunker v16 (Patch)</title>
 
@@ -73,7 +75,7 @@ var pool =
    "area": true
   },
   {
-   "text": " ",
+   "text": "",
    "area": true
   }
  ],
@@ -418,8 +420,10 @@ var pool =
 
 
 
+
+
 </head>
-<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                                  
+<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                                    
 
 <div class="container">
     <div class="toolbar" style="display: flex; gap: 5px; background: #050505; border-bottom: 2px solid var(--dim); padding: 5px 0;">
@@ -2162,6 +2166,504 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
 
+<!------ TEXT TO SPEECH / SPEEDREAD---------->
+<!------ TEXT TO SPEECH / SPEEDREAD---------->
+<!------ TEXT TO SPEECH / SPEEDREAD---------->
+<!------ TEXT TO SPEECH / SPEEDREAD---------->
+<!------ TEXT TO SPEECH / SPEEDREAD---------->
+
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('min-txt-to-speech'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] TEXT TO SPEECH / SPEEDREAD' : '[+] TEXT TO SPEECH / SPEEDREAD'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] TEXT TO SPEECH / SPEEDREAD</span>
+    </div>
+
+    <!-- The Links (Starts Hidden) -->
+    <div id="min-txt-to-speech" style="display: none; padding: 10px 0;">
+       
+<center><h1><div id="speed_read_disp_div">SPEEDREAD DISPLAY(txt to speech) </div> </h1>
+<button onclick="speed_read_click_funct()"><h1> CLICK WHEN ABOVE SAYS <b> TO 'CLICK'(enter/keypress) </b></h1><b>
+	</b></button><b>
+
+<br><br>
+wordsPerMinute:<input id="speed_read_wpm_div" value="700">
+<br><br>
+<button onclick="speed_read_start_stop_funct(document.getElementById('textarea_div'))"><b>speed_read<br>start_stop</b></button>
+<br>
+<button onclick="speed_read_start_stop_funct(document.getElementById('textarea_div'),1)"><b>speed_read <br>(noClickPauses)</b></button>
+<br><br>
+Text area (paste text here,txt2speech below)<br>
+<textarea id="textarea_div" rows="6" cols="40"> </textarea>
+<br>
+<button onclick="remove_single_spaces_from_text_area( document.getElementById('textarea_div') )"> Single linebreaks to spaces</button>
+
+<br><br>
+<button onclick="Read_textarea_aloud( document.getElementById('textarea_div') ); getElementById('textarea_div').focus()">
+	<h3>Run/Stop text to speech</h3>
+</button>
+<br>
+<h1>text2speech:</h1> 
+speed: <input id="txt2Speech_speed_div" value="2.0">
+<br><br>
+volume: <input id="txt2Speech_volume_div" value="1.0">
+<br><br>
+pitch: <input id="txt2Speech_pitch_div" value="0.5">
+<br><br>
+voice: <input id="txt2Speech_voice_div" readonly="" onclick="setVoice();">
+
+
+
+<br>
+
+<br>
+(click on area in text to start there!)
+<br>
+<br>
+<button onclick="localStorage.clear()">localStorage.clear()
+<br>(resets webpage on close/open)</button>
+<br> <button onclick="prompt('NOT AUTOMATED:\nrepeat a small section of something like a chant till its second nature while doing something else, move on, go back now and then to see which parts are memorized(this is easier than most other tricks... it is time consuming, but time is spent doing something else)')"> Memorization </button>
+
+<script>
+var textarea_div = document.getElementById("textarea_div");
+
+var speed_read_disp_div = document.getElementById("speed_read_disp_div"); 
+var speed_read_running = false;
+var speed_read_ms_pause_per_frame = 0; //set on run
+var speed_read_ms_pause_for_click = 1000; //1 second? 
+var speed_read_ready_for_click = false;
+function speed_read_click_funct(){ speed_read_ready_for_click = false; }
+var speed_read_running_min_blocks_till_click = 2;
+var speed_read_running_max_blocks_till_click = 8;
+function speed_read_running__get_blocks_till_pause(){
+	return Math.round(speed_read_running_min_blocks_till_click +
+		Math.random() * (speed_read_running_max_blocks_till_click-
+				speed_read_running_min_blocks_till_click));
+}
+
+//var SPEED_READ_COMMON_WORDS = "the be to of and a in a that have it for not on with he as you do at this but his by from we say her she or an will my one all would there their what so up out if about who get which go when make can like just into".split(" ");
+async function speed_read_start_stop_funct(t, getDisableKey_stops){
+	mySaveNLoad_input_fields_to_localStorage(  1); // getSaveNotLoad);
+
+	if(speed_read_running){speed_read_running= false; return
+	}else{ speed_read_running = true; }
+
+	speed_read_ms_pause_per_frame = 60000/ // 60 * 1000 ms/second
+		parseInt( document.getElementById("speed_read_wpm_div")
+				.value);
+
+	var tmpBlocks_till_pause =
+		speed_read_running__get_blocks_till_pause();
+	while(speed_read_running){
+		if(tmpBlocks_till_pause <= 0 && getDisableKey_stops!=1){
+			speed_read_ready_for_click = true;
+			speed_read_disp_div.innerHTML = 
+				"CLICK/PRESS A KEY";
+			for(i=0; i< 10; i+=1){
+			   if(speed_read_ready_for_click == false){
+				continue; }
+			   await usleep(speed_read_ms_pause_for_click/10);}
+			//if worked..
+			if(speed_read_ready_for_click ==false){
+			   tmpBlocks_till_pause =
+			     speed_read_running__get_blocks_till_pause();
+			   continue; }
+			speed_read_disp_div.innerHTML = 
+				"MISS, REPEATING!!!";
+			await usleep(speed_read_ms_pause_for_click*2);
+			speed_read_ready_for_click = false;
+		}else{
+		   tmpBlocks_till_pause -=1;
+		   var tmptxt_block = 
+			textarea_get_next_paragraph_selection( t);
+		   if(tmptxt_block == -1){
+			speed_read_running = false; return;}
+		   tmptxt_block = tmptxt_block.split(" ");
+		}
+		
+		await usleep(speed_read_ms_pause_per_frame*2 );
+		for( var i=0; i< tmptxt_block.length; i+=1){
+			if(speed_read_running==false){ break;}
+			speed_read_disp_div.innerHTML = tmptxt_block[i];
+			if(//SPEED_READ_COMMON_WORDS.indexOf(
+				//	tmptxt_block[i]) != -1 ||
+			   tmptxt_block[i].indexOf(".") != -1 ||
+			   i==0 ||
+ 			    (i!=0 && -1!= tmptxt_block[i-1].indexOf("."))){
+			     await usleep(speed_read_ms_pause_per_frame*2);
+			}else{
+			   await usleep(speed_read_ms_pause_per_frame ); }
+		}
+	}
+	
+}
+function remove_single_spaces_from_text_area( t ){ //text_area
+	var tmp_delin = "asd;lkfjasldfsdlf";
+	t.value = t.value.split("\n\n\n").join("\n\n")
+			.split("\n\n\n").join("\n\n")
+		.split("\n\n").join( tmp_delin )
+		.split("\n").join( " " )
+		.split(tmp_delin).join("\n\n");
+}
+
+//speed_read_click_funct()
+//speed_read_start_stop_funct()
+// parseInt( document.getElementById("txt2Speech_speed_div"))
+// textarea_get_next_paragraph_selection( t)
+// usleep( ms )
+document.addEventListener("keydown", (event) => {
+    speed_read_click_funct(); });
+
+
+var textarea_get_next_CHAR_COUNT_MAX = 1000;
+///returns -1 for 'none found', OR the text selected
+function textarea_get_next_paragraph_selection( t){ // getTextAreaDiv
+	if(t.selectionStart > t.selectionEnd){
+		var tmpStart = t.selectionStart;
+		t.selectionStart = t.selectionEnd;
+		t.selectionEnd = tmpStart;  }
+	t.selectionStart = t.selectionEnd
+
+	var tmpLast_selection_end_for_loop = t.selectionEnd; 
+	t.selectionEnd +=1; tmpCharcount = 0;
+	while(t.value[t.selectionEnd] != "\n" && 
+		   tmpLast_selection_end_for_loop != t.selectionEnd &&
+			(t.value[t.selectionEnd]!= "." ||
+			   tmpCharcount<
+				textarea_get_next_CHAR_COUNT_MAX)  ){
+		tmpLast_selection_end_for_loop = t.selectionEnd;
+		t.selectionEnd +=1;
+		tmpCharcount +=1;	 }
+	
+	if(t.selectionStart == t.selectionEnd){ return -1;}
+
+	t.selectionEnd +=1;
+	return t.value.substring(  t.selectionStart, t.selectionEnd -1);
+} 
+
+var setVoice_voice_saved = null; 
+function setVoice( get_set_to_voice_named__OPTIONAL){	
+	var tmpVoices = speechSynthesis.getVoices();
+
+	if(get_set_to_voice_named__OPTIONAL!= null){
+		get_set_to_voice_named__OPTIONAL = 
+			get_set_to_voice_named__OPTIONAL.trim();
+		var tmpVoice_names = tmpVoices.map(function(a){
+			return a.name.trim();});
+		var tmpVoice_i = tmpVoice_names.indexOf(
+			get_set_to_voice_named__OPTIONAL);
+		if( tmpVoice_i == -1){
+			tmpVoice_chose = tmpVoices[0];
+		}else{ tmpVoice_chose = tmpVoices[ tmpVoice_i];  }
+	}else{
+		var tmpVoices = speechSynthesis.getVoices();
+		var tmpOutTxt = "type in voice to select\n"; 
+		tmpOutTxt_keys = "abcdefg";
+		for(var i=0; i< tmpVoices.length; i+=1){
+			tmpOutTxt = tmpOutTxt + tmpOutTxt_keys[i]+":"+
+				tmpVoices[i].name+"\n"; }
+		setVoice_voice_saved
+	  	var tmpVoice_chose = tmpVoices[ 
+			tmpOutTxt_keys.indexOf( prompt(tmpOutTxt).trim())];
+	}
+	
+	setVoice_voice_saved = tmpVoice_chose; 
+	if(tmpVoice_chose != undefined){
+		document.getElementById("txt2Speech_voice_div")
+			.value = tmpVoice_chose.name;
+	}
+
+}
+setVoice( document.getElementById("txt2Speech_voice_div").value.trim());
+
+
+var Read_textarea_aloud__running_click_to_stop = false;
+
+async function Read_textarea_aloud( t ){ //textarea_div
+
+	mySaveNLoad_input_fields_to_localStorage(  1); // getSaveNotLoad);
+	
+	Read_textarea_aloud__running_click_to_stop= 
+		!Read_textarea_aloud__running_click_to_stop;
+	if(Read_textarea_aloud__running_click_to_stop == false){
+		EARLY_END_TXT_TO_SPEECH(); 
+		return;}
+	t.selectionEnd = t.selectionStart ;
+	while( Read_textarea_aloud__running_click_to_stop){
+		var tmp_selection = 
+			textarea_get_next_paragraph_selection( t);
+		console.log(tmp_selection);
+		if(tmp_selection == -1){ 
+			Read_textarea_aloud__running_click_to_stop =false;
+			break; } //none found
+		await tmpTEXT2SPEECH_SPEAK_TEXT( 
+		   tmp_selection,
+		   parseFloat( document.getElementById(
+			"txt2Speech_speed_div").value),
+		   parseFloat( document.getElementById(
+			"txt2Speech_pitch_div").value),
+		   parseFloat( document.getElementById(
+			"txt2Speech_volume_div").value),
+		   setVoice_voice_saved); 
+			//getTxt, getSpeed,getPitch, getVolume);
+	}
+}
+
+
+
+
+
+var tmpTEXT2SPEECH_DONE = false;
+async function usleep( ms ){
+// Probably should use 'await update_sleep()';'  //API_TAG// 
+	return new Promise(resolve => setTimeout(resolve, ms));		}
+
+function EARLY_END_TXT_TO_SPEECH(){
+	tmpTEXT2SPEECH_DONE = true;
+	speechSynthesis.cancel();
+}
+async function tmpTEXT2SPEECH_SPEAK_TEXT( getTxt, getSpeed,
+		getPitch, getVolume, getVoice_data_OPTIONAL){
+			//getVoiceName_OPTIONAL should default to '""'
+	speechSynthesis.cancel();
+	
+	var tmpMsg = new SpeechSynthesisUtterance();
+	
+	tmpMsg.rate =getSpeed; tmpMsg.pitch =getPitch;
+      	tmpMsg.text = getTxt; tmpMsg.volume = getVolume;
+
+	if(getVoice_data_OPTIONAL != null  ){ 	
+		tmpMsg.voice = getVoice_data_OPTIONAL; }
+
+	tmpTEXT2SPEECH_DONE = false;
+	tmpMsg.addEventListener("end", (event) => {
+    		tmpTEXT2SPEECH_DONE = true;	});
+	speechSynthesis.speak(tmpMsg);
+	while( tmpTEXT2SPEECH_DONE == false){
+		await usleep( 100 );	}
+}
+
+
+
+var myLOCAL_STORAGE_VAR = "mySpeedReadScreenerSav";
+
+/////////////// SAVES ALL 'textareas' AND 'inputs' WITH UNIQUE id 
+//
+function mySaveNLoad_input_fields_to_localStorage( getSaveNotLoad){
+	var tmpElm = document.querySelectorAll('input, textarea');
+	if(getSaveNotLoad){ //save
+		var tmpTxt_list = {};
+		for(var i=0; i< tmpElm.length; i+=1){
+			if(tmpElm[i].id != null){
+			tmpTxt_list[tmpElm[i].id] = tmpElm[i].value;} }
+		
+		localStorage.setItem(myLOCAL_STORAGE_VAR, 
+			JSON.stringify(tmpTxt_list) );
+	}else{ //load
+		var tmpText = localStorage.getItem(myLOCAL_STORAGE_VAR );
+
+		if(tmpText == null){
+		  mySaveNLoad_input_fields_to_localStorage( 1); //saving
+		  return;}
+		tmpText = JSON.parse(tmpText);
+		for(var i=0; i< tmpElm.length; i+=1){
+			//set '1' to avoid divs_fileLoadIfChecked
+			if(tmpElm[i].id != null 
+			   && tmpText[tmpElm[i].id] != null){
+					
+				tmpElm[i].value = tmpText[tmpElm[i].id]; }}
+}	}
+
+mySaveNLoad_input_fields_to_localStorage(  0); // getSaveNotLoad);
+</script>
+
+
+
+
+</b></center></div><b>
+
+</b></h1><b>
+
+
+
+
+<!------ CAMERA BASED SPEEDREAD---------->
+<!------ CAMERA BASED SPEEDREAD---------->
+<!------ CAMERA BASED SPEEDREAD---------->
+<!------ CAMERA BASED SPEEDREAD---------->
+<!------ CAMERA BASED SPEEDREAD---------->
+
+<h1>
+    <!-- Inline Toggle Header -->
+    <div onclick="const l = document.getElementById('min-cam-speed-read'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] CAMERA BASED SPEEDREAD' : '[+] CAMERA BASED SPEEDREAD'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+        <span>[+] CAMERA BASED SPEEDREAD</span>
+    </div>
+
+    <!-- The Links (Starts Hidden) -->
+    <div id="min-cam-speed-read" style="display: none; padding: 10px 0;">
+       
+<!-- camera speed reader, by grok! -->
+
+<!-- === FINAL CAMERA SPEED READER === -->
+<div id="cameraSpeedReader" style="display:none; margin:30px auto; max-width:100%; text-align:center; background:#1f1f1f; color:#eee; padding:25px 10px; border:2px solid #0a0; border-radius:8px;">
+  
+  <p style="margin:10px 0 18px 0; font-size:0.97em; line-height:1.45;">
+    Hold book in front of camera â€¢ Align center line with text<br>
+    Let your eyes follow the flashing left/right sides
+  </p>
+  
+  <h2>Camera Left/Right Speed Reader</h2>
+
+  <select id="camSelect" style="margin:5px; background:#333; color:#ddd; padding:6px;"></select>
+  <button onclick="cam_swapCamera()" style="background:#333;color:#ddd;">Swap</button>
+  <button onclick="cam_toggleRotation()" style="background:#333;color:#ddd;">? Rotate 90Â°</button>
+  <button onclick="cam_toggle()" style="background:#333;color:#ddd;">Close</button><br><br>
+
+  <div id="camContainer" style="position:relative; width:100%; max-width:100%; margin:15px auto; background:#000; border:2px solid #444; overflow:hidden;">
+    <video id="camVideo" autoplay="" playsinline="" style="width:100%; height:auto; display:block; max-height:75vh;"></video>
+    
+    <div style="position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none;">
+      <div id="camLeft" style="position:absolute; top:0; left:0; width:50%; height:100%; opacity:0; background:rgba(100,180,255,0.55); transition:opacity 0.08s;"></div>
+      <div id="camRight" style="position:absolute; top:0; right:0; width:50%; height:100%; opacity:0; background:rgba(100,180,255,0.55); transition:opacity 0.08s;"></div>
+      <div id="camEdge" style="position:absolute; top:0; bottom:0; width:8px; background:rgba(180,220,255,0.95); box-shadow:0 0 18px #88ccff; opacity:0; transition:opacity 0.08s;"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:15px;">
+    <button onclick="cam_toggleGuide()" style="padding:11px 22px; font-size:1.1em;">?? Start / ?? Pause</button>
+    
+    <label>Speed (ms): 
+      <input type="range" id="camSpeed" min="80" max="900" value="260" step="20" oninput="cam_updateSpeed()">
+      <span id="camSpeedVal" style="color:#0f0;">260</span>
+    </label>
+    
+    <label>Zoom (%): 
+      <input type="range" id="camZoom" min="30" max="600" value="130" step="5" oninput="cam_updateZoom()">
+      <span id="camZoomVal" style="color:#0f0;">130</span>
+    </label>
+    
+    <button onclick="cam_cycleColor()" style="background:#333;color:#ddd;">Color</button>
+  </div>
+  
+  <br><br>
+</div>
+
+<br><br>
+<button onclick="cam_initAndShow()" style="font-size:1.25em; padding:16px 34px;  border:none; border-radius:8px;">
+  <b>Open Camera Speed Reader (click here)</b>
+</button>
+<!-- === END === -->
+
+<script>
+// Camera Script (final)
+let camStream = null;
+let camDeviceId = null;
+let camRotation = 0;
+let camIsGuiding = false;
+let camInterval = null;
+let camCurrentSide = 0;
+let camSpeedMs = 260;
+let camZoom = 1.30;
+let camColor = 'rgba(100, 180, 255, 0.55)';
+
+const camVideo = document.getElementById('camVideo');
+const camLeft = document.getElementById('camLeft');
+const camRight = document.getElementById('camRight');
+const camEdge = document.getElementById('camEdge');
+
+async function cam_initAndShow() {
+  document.getElementById('cameraSpeedReader').style.display = 'block';
+  if (!camStream) await cam_startCamera();
+}
+
+async function cam_startCamera(deviceId = null) {
+  if (camStream) camStream.getTracks().forEach(t => t.stop());
+  const constraints = { video: { deviceId: deviceId ? {exact: deviceId} : undefined, facingMode: 'environment' }};
+  camStream = await navigator.mediaDevices.getUserMedia(constraints);
+  camVideo.srcObject = camStream;
+  camDeviceId = deviceId;
+  
+  const devices = await navigator.mediaDevices.enumerateDevices();
+  const select = document.getElementById('camSelect');
+  select.innerHTML = '';
+  devices.filter(d => d.kind === 'videoinput').forEach((dev, i) => {
+    const opt = document.createElement('option');
+    opt.value = dev.deviceId;
+    opt.textContent = dev.label || `Camera ${i+1}`;
+    select.appendChild(opt);
+  });
+}
+
+window.cam_swapCamera = async () => {
+  const devices = await navigator.mediaDevices.enumerateDevices();
+  const videos = devices.filter(d => d.kind === 'videoinput');
+  if (videos.length < 2) return alert('Only one camera found');
+  const next = videos.find(d => d.deviceId !== camDeviceId) || videos[0];
+  cam_startCamera(next.deviceId);
+};
+
+window.cam_toggleRotation = () => {
+  camRotation = (camRotation + 90) % 360;
+  camVideo.style.transform = `rotate(${camRotation}deg) scale(${camZoom})`;
+};
+
+window.cam_toggle = () => {
+  if (camStream) camStream.getTracks().forEach(t => t.stop());
+  camStream = null;
+  document.getElementById('cameraSpeedReader').style.display = 'none';
+};
+
+function cam_updateSpeed() {
+  camSpeedMs = parseInt(document.getElementById('camSpeed').value);
+  document.getElementById('camSpeedVal').textContent = camSpeedMs;
+  if (camIsGuiding) { cam_stopGuide(); cam_startGuide(); }
+}
+
+function cam_updateZoom() {
+  camZoom = parseInt(document.getElementById('camZoom').value) / 100;
+  document.getElementById('camZoomVal').textContent = parseInt(document.getElementById('camZoom').value);
+  camVideo.style.transform = `rotate(${camRotation}deg) scale(${camZoom})`;
+}
+
+window.cam_cycleColor = () => {
+  const colors = ['rgba(100,180,255,0.55)','rgba(255,100,120,0.55)','rgba(80,255,140,0.55)','rgba(255,220,100,0.55)'];
+  camColor = colors[(colors.indexOf(camColor) + 1) % colors.length];
+  camLeft.style.background = camColor;
+  camRight.style.background = camColor;
+};
+
+window.cam_toggleGuide = () => {
+  camIsGuiding = !camIsGuiding;
+  if (camIsGuiding) cam_startGuide();
+  else cam_stopGuide();
+};
+
+function cam_startGuide() {
+  cam_stopGuide();
+  camInterval = setInterval(cam_flashSide, camSpeedMs);
+}
+
+function cam_stopGuide() {
+  if (camInterval) clearInterval(camInterval);
+  camInterval = null;
+  camLeft.style.opacity = camRight.style.opacity = camEdge.style.opacity = '0';
+}
+
+function cam_flashSide() {
+  camLeft.style.opacity  = camCurrentSide === 0 ? '0.65' : '0';
+  camRight.style.opacity = camCurrentSide === 1 ? '0.65' : '0';
+  camEdge.style.left = camCurrentSide === 0 ? '49%' : '51%';
+  camEdge.style.opacity = '0.95';
+  setTimeout(() => camEdge.style.opacity = '0', 90);
+  camCurrentSide = 1 - camCurrentSide;
+}
+</script>
+
+
+</div>
+</h1>
+
+
+
 
 
 
@@ -2197,7 +2699,7 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
         </ul>
     </div>
-</h1></div>
+</h1></b></div><b>
 
  
 
@@ -2303,5 +2805,11 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
  
+
+
+ 
+
+
+</b> 
 </body>
 </html>
