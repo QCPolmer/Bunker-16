@@ -16,5 +16,10 @@ and can be modified and saved
 (using the on-page save feature)
 to give a full-copy of the page. 
 
+--------------------------------
+NOW CONTAINS TEXT TO SPEECH 
+SYSTEMS (mostly hand coded, save the camera one)
+------------------------
+
 It's a single page-app, no additional files
 https://qcpolmer.github.io/Bunker-16/
