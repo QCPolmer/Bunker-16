@@ -17,8 +17,10 @@ and can be modified and saved
 to give a full-copy of the page. 
 
 --------------------------------
-NOW CONTAINS TEXT TO SPEECH 
+NOW CONTAINS TEXT TO SPEECH/SPEED READ
 SYSTEMS (mostly hand coded, save the camera one)
+(originally from here):
+https://qcpolmer.github.io/Text2Speech-and-Speedread-website/
 ------------------------
 
 It's a single page-app, no additional files
