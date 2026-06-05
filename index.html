@@ -39,6 +39,8 @@
 
 
 
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bunker v16 (Patch)</title>
 
@@ -205,7 +207,7 @@ var pool =
   },
   "\"",
   {
-   "text": "file_",
+   "text": "LEVEL",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -232,7 +234,7 @@ var pool =
   },
   "\n\ngrep -rl \"",
   {
-   "text": "file_",
+   "text": "LEVEL",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -242,7 +244,7 @@ var pool =
   },
   "\ngrep -rl \"",
   {
-   "text": "file_",
+   "text": "LEVEL",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -255,7 +257,7 @@ var pool =
   "",
   " | xargs sed -i s/",
   {
-   "text": "file_",
+   "text": "LEVEL",
    "BLOCK": "INPUT_REGEX_SAFE",
    "tag": "target_wd"
   },
@@ -322,6 +324,10 @@ var pool =
     background: var(--blue) !important; 
     border: 2px dashed #fff !important; 
 }
+
+.toggle_hide_btn { cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px; } 
+
+
 .brick-ctrl { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
         .brick-ctrl select, .brick-ctrl input { width: auto; height: 38px; padding: 4px 8px; }
         
@@ -422,8 +428,10 @@ var pool =
 
 
 
+
+
 </head>
-<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                                    
+<body  id="body_div" onload= copy_this_doc_body_head_n_body__run_onload();>                                      
 
 <div class="container">
     <div class="toolbar" style="display: flex; gap: 5px; background: #050505; border-bottom: 2px solid var(--dim); padding: 5px 0;">
@@ -491,14 +499,14 @@ var pool =
 <!-- Aetherial bridge section -->
 <!-- Aetherial bridge section -->
 <!-- AETHER BRIDGE SECTION -->
-<div class="io-drawer" style="max-width: 1000px; margin: auto; border: 1px solid var(--dim); border-radius: 8px; overflow: hidden; background: rgba(0,0,0,0.1);">
+
+<div style="max-width: 1000px; margin: 10px auto; font-family: monospace;">
     
-    <!-- Inline Toggle Header -->
-    <div onclick="const core = document.getElementById('bridge-content'); const icon = document.getElementById('bridge-icon'); core.style.display = (core.style.display === 'none' ? 'block' : 'none'); icon.innerText = (core.style.display === 'none' ? '[+] SHOW' : '[-] HIDE');" style="background: rgba(0,0,0,0.3); padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--blue); user-select: none;">
-        
-        <h2 style="color: var(--blue); margin: 0; font-size: 2.5em;">[ THE AETHER BRIDGE ] PASSWORD_GEN/ENCRYPTION] <br>  </h2>
-        <span id="bridge-icon" style="color: var(--blue); font-family: monospace;">[+] SHOW</span>
+<h1>
+<div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('bridge-content',this)">
+        <span>[+] [ THE AETHER BRIDGE ] PASSWORD_GEN/ENCRYPTION]</span>
     </div>
+
 
     <!-- The Core Content (Starts Hidden) -->
     <div id="bridge-content" style="display: none; padding: 20px;">
@@ -567,10 +575,20 @@ var pool =
         <div id="status-in" class="status" style="color: var(--blue); border-color: var(--blue);">AWAITING TRANSMISSION...</div>
     </div>
 </div>
-</div>
+</h1></div>
 
 
     <script>
+
+function toggle_hide_button_N_plus_to_minus( getDivToToggle, getThis){
+	var  l = document.getElementById(getDivToToggle); 
+	var tmpTxt = getThis.firstElementChild.innerText
+		.split("-").join("+").split("+");
+	getThis.firstElementChild.innerText = 
+		(l.style.display === 'none' ? tmpTxt.join("-"): tmpTxt.join("+")); 
+	l.style.display = (l.style.display === 'none' ? 'block' : 'none');}
+
+
     // --- CORE AETHER LOGIC (YOUR ORIGINAL SCRIPT) ---
     const ioBox = document.getElementById('io-box');
     const passKey = document.getElementById('pass-key');
@@ -1680,16 +1698,13 @@ var c_body_head_n_body__boot_cmmands = [boot];
 </script>
 
 
+
+
 <div style="max-width: 1000px; margin: 10px auto; font-family: monospace;">
     
 
 
-
-
-<!------ data too js script wasm works---------->
-<!------ data too js script wasm works---------->
-<!------ data too js script wasm works---------->
-<!------ data too js script wasm works---------->
+<!------ :b: data_too_js_wasm_works :b: ---------->
 
 
 <style>
@@ -1709,10 +1724,12 @@ var c_body_head_n_body__boot_cmmands = [boot];
     </style>
 
 <h1>
-<div onclick="var lii = document.getElementById('min-data_to_js'); this.firstElementChild.innerText = (lii.style.display === 'none' ? '[-] DATA_TOO_JS_SCRIPT_WASM_WORKS' : '[+] DATA_TOO_JS_SCRIPT_WASM_WORKS'); lii.style.display = (lii.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+
+
+<div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('min-data_to_js',this)">
         <span>[+] DATA_TOO_JS_SCRIPT_WASM_WORKS</span>
     </div>
-</h1>
+
 <!-- The actual code(Starts Hidden) -->
     <div id="min-data_to_js" style="display: none; padding: 10px 0;">
 
@@ -1891,16 +1908,13 @@ console.log(${name}.buf); // Raw 'ArrayStream' (Uint8Array) bytes`;
 
 
 
-<!------ TEXT-TO-JS-VAR---------->
-<!------ TEXT-TO-JS-VAR---------->
-<!------ TEXT-TO-JS-VAR---------->
-<!------ TEXT-TO-JS-VAR---------->
-<!------ TEXT-TO-JS-VAR---------->
-<h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('text_to_js_var'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] TEXT-TO-JS-VAR' : '[+] TEXT-TO-JS-VAR'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
-        <span>[+] TEXT-TO-JS-VAR</span>
+<!------ :b: TEXT_TO_JS_VAR :b:---------->
+</h1><h1>
+
+   <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('text_to_js_var',this)">
+        <span>[+] TEXT_TO_JS_VAR</span>
     </div>
+
 
     <!-- The cmd (Starts Hidden) -->
     <div id="text_to_js_var" style="display: none; padding: 10px 0;">
@@ -1932,15 +1946,12 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
 
-<!------ AUDIO RECORDER---------->
-<!------ AUDIO RECORDER---------->
-<!------ AUDIO RECORDER---------->
-<!------ AUDIO RECORDER---------->
-<!------ AUDIO RECORDER---------->
+<!------ :b:AUDIO_RECORDER:b:---------->
+
 </h1><h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('audio_record'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] AUDIO-RECORDER' : '[+] AUDIO-RECORDER'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
-        <span>[+] AUDIO-RECORDER</span>
+
+   <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('audio_record',this)">
+        <span>[+] AUDIO_RECORDER</span>
     </div>
 
     <!-- The cmd (Starts Hidden) -->
@@ -1981,13 +1992,10 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
 
-<!------ BUNKER LOCALSTORAGE---------->
-<!------ BUNKER LOCALSTORAGE---------->
-<!------ BUNKER LOCALSTORAGE---------->
-<!------ BUNKER LOCALSTORAGE---------->
+<!------ :b:BUNKER_LOCALSTORAGE:b:---------->
 <h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('bunker_hider'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] STORE_N_LOCAL_STORAGE' : '[+] STORE_N_LOCAL_STORAGE'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+
+<div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('bunker_hider',this)">
         <span>[+] STORE_N_LOCAL_STORAGE</span>
     </div>
 
@@ -2092,13 +2100,9 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
 
-<!------ TIMER---------->
-<!------ TIMER---------->
-<!------ TIMER---------->
-<!------ TIMER---------->
+<!------ :b:TIMER:b:---------->
 <h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('timer_hider'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] TIMER' : '[+] TIMER'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+<div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('timer_hider',this)">
         <span>[+] TIMER</span>
     </div>
 
@@ -2166,15 +2170,11 @@ function txt_to_js_var_txt_area_Convert(txt_in){
 
 
 
-<!------ TEXT TO SPEECH / SPEEDREAD---------->
-<!------ TEXT TO SPEECH / SPEEDREAD---------->
-<!------ TEXT TO SPEECH / SPEEDREAD---------->
-<!------ TEXT TO SPEECH / SPEEDREAD---------->
-<!------ TEXT TO SPEECH / SPEEDREAD---------->
+<!------ :b:TEXT2SPEECH_SPEEDREAD:b:---------->
 
 <h1>
     <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('min-txt-to-speech'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] TEXT TO SPEECH / SPEEDREAD' : '[+] TEXT TO SPEECH / SPEEDREAD'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+    <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('min-txt-to-speech',this)">
         <span>[+] TEXT TO SPEECH / SPEEDREAD</span>
     </div>
 
@@ -2486,15 +2486,10 @@ mySaveNLoad_input_fields_to_localStorage(  0); // getSaveNotLoad);
 
 
 
-<!------ CAMERA BASED SPEEDREAD---------->
-<!------ CAMERA BASED SPEEDREAD---------->
-<!------ CAMERA BASED SPEEDREAD---------->
-<!------ CAMERA BASED SPEEDREAD---------->
-<!------ CAMERA BASED SPEEDREAD---------->
+<!------ :b:CAMERA_BASED_SPEEDREAD:b:---------->
 
 <h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('min-cam-speed-read'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] CAMERA BASED SPEEDREAD' : '[+] CAMERA BASED SPEEDREAD'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+   <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('min-cam-speed-read',this)">
         <span>[+] CAMERA BASED SPEEDREAD</span>
     </div>
 
@@ -2666,17 +2661,306 @@ function cam_flashSide() {
 
 
 
-
-
-
-<!------ LINK TREE---------->
-<!------ LINK TREE---------->
-<!------ LINK TREE---------->
-<!------ LINK TREE---------->
-<!------ LINK TREE---------->
+<!------ :b:CAMERA_SCANNER:b:---------->
 <h1>
-    <!-- Inline Toggle Header -->
-    <div onclick="const l = document.getElementById('min-links'); this.firstElementChild.innerText = (l.style.display === 'none' ? '[-] EXTERNAL TOOLS/LINKS' : '[+] EXTERNAL TOOLS/LINKS'); l.style.display = (l.style.display === 'none' ? 'block' : 'none');" style="cursor: pointer; color: var(--h); font-size: 0.8em; user-select: none; border-bottom: 1px solid var(--dim); padding-bottom: 5px;">
+   <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('min_cam_scanner',this)">
+        <span>[+] CAMERA_SCANNER</span>
+    </div>
+
+    <!-- The Links (Starts Hidden) -->
+    <div id="min_cam_scanner" style="display: none; padding: 10px 0;">
+       
+
+
+
+
+<div class="card">
+    <div id="status" class="status-box">Tap "1. Initialize" to unlock cameras.</div>
+    
+    <button class="setup" style="width:100%;" onclick="primeCameras()">1. Initialize &amp; List Cameras</button>
+    
+    <div class="btns" style="margin-top:10px;">
+        <div>
+            <label>Select Camera</label>
+            <select id="cam-select" onchange="toggleViewfinder(true)"></select>
+        </div>
+        <div>
+            <label>Snap Resolution</label>
+            <select id="res-target">
+                <option value="1280x720">720p</option>
+                <option value="1920x1080">1080p</option>
+                <option value="3840x2160" selected="">4K (Ultra)</option>
+            </select>
+        </div>
+    </div>
+
+    <video id="v-temp" autoplay="" playsinline=""></video>
+
+    <div class="btns">
+        <button class="primary" onclick="snap()">ðŸ“¸ SNAP HIGH-RES</button>
+        <button onclick="toggleViewfinder()">ðŸ“¡ Toggle Viewfinder</button>
+    </div>
+</div>
+
+<div class="card">
+    <label>Alignment Grid</label>
+    <canvas id="src-cvs"></canvas>
+    <button onclick="document.getElementById('file-in').click()" style="width:100%; margin-top:8px; font-size:12px; background:none; border:1px dashed #444;">ðŸ“ Or Import Image</button>
+    <input type="file" id="file-in" style="display:none" onchange="handleFile(event)">
+</div>
+
+<div class="card">
+    <label>Adjust &amp; Export</label>
+    <label>Aspect Ratio Presets</label>
+<div class="btns" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+    <button onclick="setAspect(1.41)" title="A4 Paper">A4</button>
+    <button onclick="setAspect(1.00)" title="Square">Square</button>
+    <button onclick="setAspect(1.29)" title="US Letter">US</button>
+    <button onclick="setAspect(1.66)" title="3x5 Card">3x5</button>
+    <button onclick="setAspect(1.50)" title="4x6 Photo">4x6</button>
+</div>
+<button onclick="flipAspect()" style="width:100%; margin-bottom:10px; font-size:12px; background:#444;">â‡„ Flip Portrait/Landscape</button>
+    <input type="range" id="aspect-slider" min="0.5" max="2.0" step="0.01" value="0.75" oninput="renderResult()">
+    <canvas id="dst-cvs"></canvas>
+    <button class="accent" style="width:100%; margin-top:12px;" onclick="download()">ðŸ’¾ SAVE FINAL PNG</button>
+</div>
+
+<script>
+let masterData = null, masterW = 0, masterH = 0;
+let points = [], draggingIdx = -1, rotation = 0;
+let vfStream = null;
+
+const srcCvs = document.getElementById('src-cvs'), srcCtx = srcCvs.getContext('2d');
+const dstCvs = document.getElementById('dst-cvs'), dstCtx = dstCvs.getContext('2d');
+const v = document.getElementById('v-temp');
+const status = document.getElementById('status');
+
+
+    
+// 1. PRIME CAMERAS: Request permission then list all devices
+async function primeCameras() {
+    status.innerText = "Requesting permission...";
+    try {
+        const tempStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const cams = devices.filter(d => d.kind === 'videoinput');
+        
+        const sel = document.getElementById('cam-select');
+        sel.innerHTML = cams.map(c => `<option value="${c.deviceId}">${c.label || 'Camera '+c.deviceId.slice(0,5)}</option>`).join('');
+        
+        // Stop temp stream
+        tempStream.getTracks().forEach(t => t.stop());
+        status.innerText = "Cameras unlocked. Choose one and toggle viewfinder.";
+    } catch (e) {
+        status.innerText = "Error: Permission denied or no camera found.";
+    }
+}
+
+// 2. TOGGLE VIEWFINDER: Low-res preview to aim
+async function toggleViewfinder(forceOn = false) {
+    if (vfStream && !forceOn) {
+        vfStream.getTracks().forEach(t => t.stop());
+        vfStream = null;
+        v.style.display = 'none';
+        status.innerText = "Viewfinder Off.";
+    } else {
+        if (vfStream) vfStream.getTracks().forEach(t => t.stop());
+        const camId = document.getElementById('cam-select').value;
+        try {
+            vfStream = await navigator.mediaDevices.getUserMedia({
+                video: { deviceId: {exact: camId}, width: 640 }
+            });
+            v.srcObject = vfStream;
+            v.style.display = 'block';
+            status.innerText = "Viewfinder On (Low-res).";
+        } catch (e) { status.innerText = "Viewfinder failed."; }
+    }
+}
+
+// 3. THE SNAP: Terminate everything, go 4K, grab, kill.
+async function snap() {
+    const res = document.getElementById('res-target').value.split('x').map(Number);
+    const camId = document.getElementById('cam-select').value;
+    
+    status.innerText = "CRITICAL CAPTURE STARTING...";
+    
+    // Kill viewfinder to free RAM
+    if (vfStream) { vfStream.getTracks().forEach(t => t.stop()); vfStream = null; }
+
+    try {
+        const snapStream = await navigator.mediaDevices.getUserMedia({
+            video: { deviceId: {exact: camId}, width: {ideal: res[0]}, height: {ideal: res[1]} }
+        });
+        v.srcObject = snapStream;
+        v.style.display = 'block'; // Briefly show the high-res frame
+
+        await new Promise(r => v.onloadedmetadata = r);
+        await new Promise(r => setTimeout(r, 1000)); // Focus time
+        
+        masterW = v.videoWidth; masterH = v.videoHeight;
+        const temp = document.createElement('canvas');
+        temp.width = masterW; temp.height = masterH;
+        temp.getContext('2d').drawImage(v, 0, 0);
+        masterData = temp.getContext('2d').getImageData(0, 0, masterW, masterH);
+        
+        // KILL IMMEDIATELY
+        snapStream.getTracks().forEach(t => t.stop());
+        v.style.display = 'none';
+        
+        status.innerText = `SUCCESS: ${masterW}x${masterH} Loaded.`;
+        initUI();
+    } catch (e) { 
+        status.innerText = "High-res Failed. Try a lower resolution."; 
+        console.error(e);
+    }
+}
+
+function handleFile(e) {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+        const i = new Image();
+        i.onload = () => {
+            masterW = i.width; masterH = i.height;
+            const t = document.createElement('canvas');
+            t.width = masterW; t.height = masterH;
+            t.getContext('2d').drawImage(i, 0, 0);
+            masterData = t.getContext('2d').getImageData(0, 0, masterW, masterH);
+            initUI();
+        };
+        i.src = ev.target.result;
+    };
+    reader.readAsDataURL(e.target.files[0]);
+}
+
+function initUI() {
+    srcCvs.width = 800; srcCvs.height = 800 * (masterH / masterW);
+    points = [{x:100,y:100}, {x:700,y:100}, {x:700,y:srcCvs.height-100}, {x:100,y:srcCvs.height-100}];
+    drawSource();
+    renderResult();
+}
+
+function setAspect(val) { document.getElementById('aspect-slider').value = val; renderResult(); }
+function rotate(deg) { rotation = (rotation + deg) % 360; renderResult(); }
+
+function flipAspect() {
+    const slider = document.getElementById('aspect-slider');
+    // Calculate inverse: 1 / current_ratio
+    const newRatio = 1 / parseFloat(slider.value);
+    
+    // Ensure we don't exceed the slider's min/max limits
+    if (newRatio < 0.5) slider.min = newRatio;
+    if (newRatio > 2.5) slider.max = newRatio;
+    
+    slider.value = newRatio.toFixed(2);
+    renderResult();
+}
+    
+// Interaction Logic
+srcCvs.addEventListener('pointerdown', e => {
+    const r = srcCvs.getBoundingClientRect();
+    const x = (e.clientX - r.left) * (srcCvs.width / r.width);
+    const y = (e.clientY - r.top) * (srcCvs.height / r.height);
+    draggingIdx = points.findIndex(p => Math.hypot(p.x - x, p.y - y) < 40);
+    if(draggingIdx !== -1) srcCvs.setPointerCapture(e.pointerId);
+});
+srcCvs.addEventListener('pointermove', e => {
+    if (draggingIdx === -1) return;
+    const r = srcCvs.getBoundingClientRect();
+    points[draggingIdx].x = (e.clientX - r.left) * (srcCvs.width / r.width);
+    points[draggingIdx].y = (e.clientY - r.top) * (srcCvs.height / r.height);
+    drawSource();
+});
+srcCvs.addEventListener('pointerup', () => { draggingIdx = -1; renderResult(); });
+
+function drawSource() {
+    srcCtx.clearRect(0,0,srcCvs.width, srcCvs.height);
+    const t = document.createElement('canvas');
+    t.width = masterW; t.height = masterH;
+    t.getContext('2d').putImageData(masterData, 0, 0);
+    srcCtx.drawImage(t, 0, 0, srcCvs.width, srcCvs.height);
+    srcCtx.strokeStyle = '#0a84ff'; srcCtx.lineWidth = 3;
+    srcCtx.beginPath(); srcCtx.moveTo(points[0].x, points[0].y);
+    points.forEach(p => srcCtx.lineTo(p.x, p.y));
+    srcCtx.closePath(); srcCtx.stroke();
+    srcCtx.fillStyle = '#ff3b30';
+    points.forEach(p => { srcCtx.beginPath(); srcCtx.arc(p.x, p.y, 12, 0, Math.PI*2); srcCtx.fill(); });
+}
+
+function renderResult() {
+    if (!masterData) return;
+    const ratio = parseFloat(document.getElementById('aspect-slider').value);
+    const outW = 600; const outH = Math.round(outW / ratio);
+    const tCvs = document.createElement('canvas'); tCvs.width = outW; tCvs.height = outH;
+    const tCtx = tCvs.getContext('2d'); const tImg = tCtx.createImageData(outW, outH);
+    const dPix = tImg.data;
+    const scale = masterW / srcCvs.width;
+    const p = points.map(pt => ({ x: pt.x * scale, y: pt.y * scale }));
+    const h = solveHomography(p, outW, outH);
+
+    for (let y = 0; y < outH; y++) {
+        for (let x = 0; x < outW; x++) {
+            const z = h[6]*x + h[7]*y + 1;
+            const sx = Math.floor((h[0]*x + h[1]*y + h[2]) / z);
+            const sy = Math.floor((h[3]*x + h[4]*y + h[5]) / z);
+            if (sx >= 0 && sx < masterW && sy >= 0 && sy < masterH) {
+                const sIdx = (sy * masterW + sx) * 4;
+                const dIdx = (y * outW + x) * 4;
+                dPix[dIdx] = masterData.data[sIdx]; dPix[dIdx+1] = masterData.data[sIdx+1];
+                dPix[dIdx+2] = masterData.data[sIdx+2]; dPix[dIdx+3] = 255;
+            }
+        }
+    }
+    tCtx.putImageData(tImg, 0, 0);
+    if (rotation % 180 === 0) { dstCvs.width = outW; dstCvs.height = outH; }
+    else { dstCvs.width = outH; dstCvs.height = outW; }
+    dstCtx.save();
+    dstCtx.translate(dstCvs.width/2, dstCvs.height/2);
+    dstCtx.rotate(rotation * Math.PI / 180);
+    dstCtx.drawImage(tCvs, -outW/2, -outH/2);
+    dstCtx.restore();
+}
+
+function solveHomography(p, w, h) {
+    const x0 = p[0].x, y0 = p[0].y, x1 = p[1].x, y1 = p[1].y, x2 = p[2].x, y2 = p[2].y, x3 = p[3].x, y3 = p[3].y;
+    const dx1 = x1 - x2, dy1 = y1 - y2, dx2 = x3 - x2, dy2 = y3 - y2;
+    const sx = x0 - x1 + x2 - x3, sy = y0 - y1 + y2 - y3;
+    const g = ((sx * dy2) - (sy * dx2)) / ((dx1 * dy2) - (dy1 * dx2));
+    const h_c = ((dx1 * sy) - (dy1 * sx)) / ((dx1 * dy2) - (dy1 * dx2));
+    return [(x1-x0+g*x1)/w, (x3-x0+h_c*x3)/h, x0, (y1-y0+g*y1)/w, (y3-y0+h_c*y3)/h, y0, g/w, h_c/h];
+}
+
+function download() {
+    const link = document.createElement('a');
+    link.download = `scan_${Date.now()}.png`;
+    link.href = dstCvs.toDataURL('image/png', 1.0);
+    link.click();
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</h1>
+
+
+
+
+
+
+<!------ :b: LINK_TREE :b ---------->
+<h1>
+
+
+
+    <div class="toggle_hide_btn" onclick="toggle_hide_button_N_plus_to_minus('min-links',this)">
         <span>[+] EXTERNAL TOOLS/LINKS---MAKE A DROP DOWN MENU OPTION IN MAIN TOP-THING ABOVE FOR THIS, IT"S EDABLE IN SCRIPT ITSELF, CAN HAVE A 'NOTES' ON TOO!!!</span>
     </div>
 
@@ -2811,5 +3095,11 @@ function cam_flashSide() {
 
 
 </b> 
+
+
+ 
+
+
+ 
 </body>
 </html>
