@@ -22,6 +22,10 @@ SYSTEMS (mostly hand coded, save the camera one)
 (originally from here):
 https://qcpolmer.github.io/Text2Speech-and-Speedread-website/
 ------------------------
+AND CAMERA SCANNER
+originally here:
+https://qcpolmer.github.io/camera-scanner-html/
+----------------------------
 
 It's a single page-app, no additional files
 https://qcpolmer.github.io/Bunker-16/
